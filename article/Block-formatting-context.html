@@ -31,7 +31,7 @@
 <meta property="og:description" content="或許你沒聽過 Block Formatting Context，但你肯定有用過！其實在切版時，常常會使用到 BFC，只是你沒有意識到而已，如果能夠有意識的使用 BFC，對於版面的掌控非常有幫助。">
 <meta property="og:image" content="https://i.imgur.com/qmupIlt.png">
 <meta property="article:published_time" content="2020-03-12T08:35:37.000Z">
-<meta property="article:modified_time" content="2020-03-14T17:35:29.334Z">
+<meta property="article:modified_time" content="2020-03-14T17:41:13.510Z">
 <meta property="article:author" content="yachen">
 <meta property="article:tag" content="CSS">
 <meta property="article:tag" content="w3HexSchool">
@@ -170,7 +170,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    10 minutes read (About 1441 words)
+                    10 minutes read (About 1494 words)
                 </span>
                 
                 
@@ -278,13 +278,15 @@
 <blockquote>
 <p>In a block formatting context, each box’s left outer edge touches the left edge of the containing block (for right-to-left formatting, right edges touch). This is true even in the presence of floats (although a box’s line boxes may shrink due to the floats), unless the box establishes a new block formatting context (in which case the box itself may become narrower due to the floats).</p>
 </blockquote>
-<p>一開始曾提及在預設下，元素(盒子)會貼齊其 containing block(包含塊)左側，除非遇到 float 元素。</p>
+<p>一開始曾提及在預設下，元素(盒子)會貼齊其 containing block(包含塊)左側，除非遇到 float 元素，什麼意思？</p>
 <p>如果你有用過 float，應該有遇過 float 元素遮住其它非 float 元素的情況，例如：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"float"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.float</span>&#123;</span><br><span class="line">      <span class="attribute">float</span>: left;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">      <span class="attribute">background-color</span>: orange;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">      <span class="attribute">display</span>: block;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">      <span class="attribute">background-color</span>: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>橘色的 float 元素蓋住了黃色元素。</p>
+<p>橘色的 float 元素蓋住了黃色元素，但黃色元素的左邊緣仍貼齊其 containing block 的左邊緣。</p>
 <p><img src="./Block-formatting-context/float-3.png" alt=""></p>
-<p>只要讓黃色元素建立 BFC 即可解決，例如加上 overflow: hidden 或 display: flow-root。</p>
+<br>
+<p>只要讓黃色元素建立 BFC 即可解決重疊問題，例如加上 overflow: hidden 或 display: flow-root。</p>
+<p>但同時，黃色元素的左邊緣不再貼齊其 containing block 的左邊緣。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">      <span class="attribute">display</span>: flow-root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="./Block-formatting-context/float-4.png" alt=""></p>
 <br>
