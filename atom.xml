@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yachen168.github.io/"/>
-  <updated>2020-04-01T07:41:26.801Z</updated>
+  <updated>2020-04-01T10:04:54.576Z</updated>
   <id>https://yachen168.github.io/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://yachen168.github.io/article/Position.html"/>
     <id>https://yachen168.github.io/article/Position.html</id>
     <published>2020-03-31T12:03:24.000Z</published>
-    <updated>2020-04-01T07:41:26.801Z</updated>
+    <updated>2020-04-01T10:04:54.576Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;position 是很常用的屬性，對於 position 各種屬性值的定義必須有足夠了解才能更隨心所欲的操控畫面中的元素。&lt;/p&gt;
+      &lt;p&gt;這篇要介紹的是 position，顧名思義，它與元素的位置或定位方式有關，了解它的各種屬性值肯定是必要的，像是常見的彈跳視窗或固定導覽列，也都需要它。&lt;/p&gt;
     
     </summary>
     
