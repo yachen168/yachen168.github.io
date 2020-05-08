@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yachen168.github.io/"/>
-  <updated>2020-04-10T04:28:20.620Z</updated>
+  <updated>2020-05-08T07:26:05.037Z</updated>
   <id>https://yachen168.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS 原理 - Flex(上)</title>
+    <link href="https://yachen168.github.io/article/Flex.html"/>
+    <id>https://yachen168.github.io/article/Flex.html</id>
+    <published>2020-05-08T05:32:37.000Z</published>
+    <updated>2020-05-08T07:26:05.037Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;接下來將介紹 flex，從先前 &lt;a href=&quot;https://yachen168.github.io/article/Formatting-context.html&quot;&gt;formatting context&lt;/a&gt; 的觀念開始，再詳細介紹每個屬性的用法以及 flex box 伸縮的計算方式。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
+    
+    
+      <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS 原理 - position</title>
