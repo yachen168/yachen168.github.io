@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html  lang="zh">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156413844-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-156413844-3');
+    </script>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>CSS 原理 - Flex(中) - yachen</title>
+
+
+    <meta name="description" content="這篇將介紹 flex 屬性，並且深入探討 flex 究竟是如何計算伸縮的比例。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 原理 - Flex(中)">
+<meta property="og:url" content="https://yachen168.github.io/article/Flex2.html">
+<meta property="og:site_name" content="yachen">
+<meta property="og:description" content="這篇將介紹 flex 屬性，並且深入探討 flex 究竟是如何計算伸縮的比例。">
+<meta property="og:image" content="https://i.imgur.com/qmupIlt.png">
+<meta property="article:published_time" content="2020-05-10T07:54:33.000Z">
+<meta property="article:modified_time" content="2020-05-10T10:28:30.479Z">
+<meta property="article:author" content="yachen">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/qmupIlt.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/avatar.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+<link rel="alternate" href="/atom.xml" title="yachen" type="application/atom+xml">
+</head>
+
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/avatar.png" alt="CSS 原理 - Flex(中)" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/yachen168">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Suche" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+        
+            <section class="section">
+                <div class="container">
+                    <div class="columns">
+                        <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+                            
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="https://i.imgur.com/qmupIlt.png" alt="CSS 原理 - Flex(中)">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-05-10T07:54:33.000Z">2020-05-10</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/web/">web</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    15 minutes read (About 2250 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                CSS 原理 - Flex(中)
+            
+        </h1>
+        <div class="content">
+            <p>這篇將介紹 flex 屬性，並且深入探討 flex 究竟是如何計算伸縮的比例。</p>
+<a id="more"></a>
+<br>
+<h2 id="名詞介紹"><a class="header-anchor" href="#名詞介紹"></a>名詞介紹</h2>
+<p>若要理解 flex 是如何計算伸縮比例，首先需要了解一下 positive free space 與 negative free space 這兩個名詞。</p>
+<h3 id="positive-free-space"><a class="header-anchor" href="#positive-free-space"></a>positive free space</h3>
+<p>若 <code>flex items</code> 在<code>主軸(main axis)</code>方向上的尺寸總和<code>小於</code> <code>flex container</code> 的尺寸，此時會出現 flex container 的空間沒有被填滿，這些剩餘空間就稱為 <code>positive free space</code>。</p>
+<p>例如，在主軸(main axis)為 row 下，若 flex container 的寬度為 500px，而 a、b、c 三個 flex items 寬度各為 100px，此時 flex container 還有 200px 的 positive free space。</p>
+<br>
+<p><img src="https://i.imgur.com/lNhLpcs.png" alt=""><br>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax">圖片來源 MDN</a></p>
+<br>
+<h3 id="negative-free-space"><a class="header-anchor" href="#negative-free-space"></a>negative free space</h3>
+<p>若 <code>flex items</code> 在<code>主軸(main axis)</code>方向上的尺寸總和<code>大於</code> <code>flex container</code> 的尺寸，此時 flex container 的空間不夠用，而 flex items 的尺寸總和與 flex container 尺寸的<code>差額</code>就稱為 <code>negative free space</code>。</p>
+<p>例如，在主軸(main axis)為 row 下，若 flex container 的寬度為 500px，而 a、b、c 三個 flex items 寬度各為 200px，此時 flex container 的寬度 500px 小於 flex items 的寬度總和 600px，negative free space 為 600px 減 500px，等於 100px。</p>
+<br>
+<p><img src="https://i.imgur.com/OugSaLG.png" alt=""><br>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax">圖片來源 MDN</a></p>
+<br>
+<h2 id="flex-屬性"><a class="header-anchor" href="#flex-屬性"></a>flex 屬性</h2>
+<p><img src="https://i.imgur.com/MkKEK9o.png" alt=""><br>
+圖片來源：<a href="https://www.w3.org/TR/css-flexbox-1/#flex-property">W3C</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">flex</span>: <span class="selector-tag">flex-grow</span> ｜ <span class="selector-tag">flex-shrink</span> ｜ <span class="selector-tag">flex-basis</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>為三個屬性 <code>flex-grow</code>、<code>flex-shrink</code> 與 <code>flex-basis</code> 的縮寫。</p>
+<ul>
+<li>flex-grow: 決定 <code>flex item</code> 將<code>得到</code>多少<code>比例</code>的 <code>positive free space</code>。</li>
+<li>flex-shrink: 決定 <code>flex item</code> 將<code>得到</code>多少<code>比例</code>的 <code>negative free space</code>。</li>
+<li>flex-basis: 決定 <code>flex item</code> 在尚未 grow 與 shrink 前的<code>原始尺寸</code>。</li>
+</ul>
+</li>
+<li>
+<p>預設值為 <code>flex: 0 1 auto</code></p>
+</li>
+</ul>
+<br>
+<h3 id="flex-grow"><a class="header-anchor" href="#flex-grow"></a>flex-grow</h3>
+<ul>
+<li>以 <code>flex-basis</code> 為基礎，決定 <code>positive free space</code> 的<code>分配比例</code>，所以有 positive free space 才有作用。
+<ul>
+<li>必須為 <code>≥ 0</code> 的值。</li>
+<li>若為 <code>0</code> (<code>預設值</code>)，則<code>不會延伸</code>。</li>
+</ul>
+</li>
+</ul>
+<h4 id="計算方式"><a class="header-anchor" href="#計算方式"></a>計算方式</h4>
+<p>在 flex-direction: row 下，有一個寬度為 500px 的 flex container，與三個寬度各為 100px、80px、70px 的 flex items，則在預設下會有 500px - 250px = 250px 的 positive free space 。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item1"</span>&gt;</span>item1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item2"</span>&gt;</span>item2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item3"</span>&gt;</span>item3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">outline</span>: <span class="number">3px</span> solid <span class="number">#444</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">120px</span>;</span><br><span class="line">  &#125;  </span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item1</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">1</span> auto;    <span class="comment">/* 此為預設值 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item2</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">1</span> auto;    <span class="comment">/* 此為預設值 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item3</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">1</span> auto;    <span class="comment">/* 此為預設值 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/UyGZoAz.png" alt=""></p>
+<br>
+<p>現在將三個 flex items 的 <code>flex-grow</code> 分別設定為 <code>1</code>、<code>2</code>、<code>2</code>。</p>
+<ul>
+<li>item1 將分配到 1/(1+2+2) = <code>1/5</code> 的 positive free space。最終寬度為 150px。</li>
+<li>item2 將分配到 2/(1+2+2) = <code>2/5</code> 的 positive free space。最終寬度為 180px。</li>
+<li>item3 將分配到 2/(1+2+2) = <code>2/5</code> 的 positive free space。最終寬度為 170px。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item1</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span> <span class="number">1</span> auto; <span class="comment">/* 將 flex-grow 改為 1，將佔 1/5 等分 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item2</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">2</span> <span class="number">1</span> auto; <span class="comment">/* 將 flex-grow 改為 2，將佔 2/5 等分 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"><span class="selector-class">.item3</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">2</span> <span class="number">1</span> auto;  <span class="comment">/* 將 flex-grow 改為 2，將佔 2/5 等分 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/xOlD3h8.gif" alt=""><br>
+<br></p>
+<h3 id="flex-shrink"><a class="header-anchor" href="#flex-shrink"></a>flex-shrink</h3>
+<ul>
+<li>
+<p>以 <code>flex-basis</code> 為基礎，決定 <code>negative free space</code> 的<code>分配比例</code>，所以有 negative free space 才有作用。</p>
+<ul>
+<li>必須為 <code>≥ 0</code> 的值。</li>
+<li>若為 <code>0</code>，則<code>不會</code>收縮，此時若 container 空間不夠，會發生 <code>overflow</code>。</li>
+<li><code>預設值</code>為 <code>1</code>。</li>
+</ul>
+</li>
+<li>
+<p>flex items <code>不會</code>縮短至<code>小於</code> <code>min-content</code> 的尺寸，除非設定 min-width 或 min-height 屬性。</p>
+</li>
+</ul>
+<br>
+<h4 id="計算方式-v2"><a class="header-anchor" href="#計算方式-v2"></a>計算方式</h4>
+<p>flex container 寬度為 500px，其三個 flex items 寬度各為 200px，故此時有 100px 的 negative free space，若將所有 flex items 的 flex-shrink 皆設定為 0，則將發生 overflow。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item1"</span>&gt;</span>item1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item2"</span>&gt;</span>item2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item3"</span>&gt;</span>item3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123; </span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">120px</span>;</span><br><span class="line">    <span class="attribute">outline</span>: <span class="number">3px</span> solid <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &gt; * &#123;      </span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;       <span class="comment">/* 所有 flex items 寬度皆為 200px */</span> </span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> auto;     <span class="comment">/* 將所有的 flex-shrink 設定為 0 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/QmDyzSx.png" alt=""></p>
+<br>
+<p>現在將第一個與第二個 flex item 的 <code>flex-shrink</code> 分別設定為 <code>1</code> 與 <code>4</code>，第三個 flex item 的 flex-shrink 依然為 <code>0</code>。</p>
+<p><b>注意，shrink 與 grow 的計算方法並不相同，公式可參考 <a href="https://ithelp.ithome.com.tw/articles/10194694">前端新手村 flex grow &amp; shrink 演算法</a>。</b></p>
+<p>negative free space = 500px - 200 *3 = -100px</p>
+<ul>
+<li>
+<p>item 1 將分配到 <code>1/5</code> 的 negative free space，所以最後寬度為 180px。</p>
+<blockquote>
+<p>算法： 1 * 200/(1 * 200 + 4 * 200 + 0 * 200)= 1/5</p>
+</blockquote>
+</li>
+<li>
+<p>item 2 將分配到 <code>4/5</code> 的 negative free space，所以最後寬度為 120px。</p>
+<blockquote>
+<p>算法： 4 * 200/(1 * 200 + 4 * 200 + 0 * 200)= 4/5</p>
+</blockquote>
+</li>
+<li>
+<p>item 3 將分配到 <code>0/5</code> 的 negative free space，所以最後寬度為 200px。</p>
+<blockquote>
+<p>算法： 0 * 200/(1 * 200 + 4 * 200 + 0 * 200)= 0</p>
+</blockquote>
+</li>
+</ul>
+<br>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item1</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">1</span> auto;      <span class="comment">/* 佔 1*200/(1*200+4*200+0*200)= 1/5 等份 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item2</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">4</span> auto;     <span class="comment">/* 佔 4*200/(1*200+4*200+0*200)= 4/5 等份 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item3</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> auto;     <span class="comment">/* 佔 0*200/(1*200+4*200+0*200)= 0 等份 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/3pxK0LD.gif" alt=""></p>
+<br>
+<h3 id="flex-basis"><a class="header-anchor" href="#flex-basis"></a>flex-basis</h3>
+<ul>
+<li>
+<p>決定 flex item 在尚未 grow 或 shrink 前的<code>原始尺寸</code>。</p>
+</li>
+<li>
+<p><code>預設值</code>為 <code>auto</code>。</p>
+<ul>
+<li>若<code>有</code>指定尺寸 width、height (視主軸 main axis 而定)，則依照<code>所指定的尺寸</code>。</li>
+<li>若<code>無</code>指定尺寸 width、height (視主軸 main axis 而定)，則由其<code>內容大小</code>決定。</li>
+</ul>
+</li>
+<li>
+<p>若為 <code>0</code>，則 flex item <code>不被納入空間計算</code>。例如有一個 container 寬度 400px，裡面有 item1 與 item2，寬度各為 200px，此時 flex-basis 為預設的 auto，故沒有剩餘空間。但若將 item2 的 flex-basis 設為 0，則會有 200px 的剩餘空間，原因是 flex-basis 優先級高於 width 與 height。</p>
+</li>
+<li>
+<p>除了 auto 之外，尚有 content、max-content、min-content 等屬性值，不過多數瀏覽器不支援。</p>
+</li>
+<li>
+<p>可給定<code>有單位</code>的<code>數值</code>，例如 100px 或 10%，若<code>同時</code>設定 <code>flex-basis (非 auto)</code> 和<code>尺寸</code>(width 或 height，視主軸 main axis 而定)，則以 <code>flex-basis</code> 為<code>優先</code>。</p>
+</li>
+</ul>
+<p>例如：</p>
+<p>有三個 flex items，指定第一個 flex item 的 width 為 200px，<br>
+在 flex-direction: row 且 flex-grow 與 flex-shrink 皆為 0 的前提下，設定 flex-basis 值為 auto，此時</p>
+<ul>
+<li>第一個 flex item 的寬度為 200px。</li>
+<li>第二與第三個 flex item 的寬度為其內容尺寸。</li>
+</ul>
+<p><img src="https://i.imgur.com/zY5dqky.png" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>flex item 1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>flex item 2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>flex item 3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">outline</span>: <span class="number">1px</span> solid <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> <span class="selector-pseudo">:first-child</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;    <span class="comment">/* 第一個子元素給定寬度 200px */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &gt; * &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> auto;  <span class="comment">/* 所有子元素的 flex basis 為 auto*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+<br>
+<h2 id="flex-屬性另類寫法"><a class="header-anchor" href="#flex-屬性另類寫法"></a>flex 屬性另類寫法</h2>
+<p>flex 屬性除了直接給定 flex-grow、flex-shrink、flex-basis 三個值之外，還有以下幾種寫法。</p>
+<ul>
+<li>flex: <code>initial</code></li>
+<li>flex: <code>auto</code></li>
+<li>flex: <code>none</code></li>
+<li>flex: <code>&lt;正數&gt;</code></li>
+</ul>
+<p>註：&lt;正數&gt; 可不必為整數，例如可為 0.5。</p>
+<br>
+<p>以下分別說明這四種屬性值的意義。</p>
+<br>
+<h3 id="flex-initial"><a class="header-anchor" href="#flex-initial"></a>flex: initial</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">flex</span>： <span class="selector-tag">initial</span>;</span><br></pre></td></tr></table></figure>
+<p>等同於</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">flex</span>： 0 1 <span class="selector-tag">auto</span>;</span><br></pre></td></tr></table></figure>
+<p>flex item 會依照 width 或 height (視主軸 main axis 而定)屬性決定其尺寸，即使 container 中<code>有剩餘空間</code>，flex item 仍<code>無法延伸</code>，但當<code>空間不足</code>時，元素<code>可收縮</code>。</p>
+<br>
+<h3 id="flex-auto"><a class="header-anchor" href="#flex-auto"></a>flex: auto</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">flex</span>: <span class="selector-tag">auto</span>;</span><br></pre></td></tr></table></figure>
+<p>等同於</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">flex</span>: 1 1 <span class="selector-tag">auto</span>;</span><br></pre></td></tr></table></figure>
+<p>flex item <code>可延伸</code>與<code>收縮</code>，會依照 width 或 height (視主軸 main axis 而定)屬性決定其尺寸。若所有 flex items 均設定 flex: auto 或 flex: none，則在 flex items 尺寸決定後，剩餘空間會被平分給 flex: auto 的 flex items。</p>
+<br>
+<h3 id="flex-none"><a class="header-anchor" href="#flex-none"></a>flex: none</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">flex</span>: <span class="selector-tag">none</span>;</span><br></pre></td></tr></table></figure>
+<p>等同於</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">flex</span>: 0 0 <span class="selector-tag">auto</span>;</span><br></pre></td></tr></table></figure>
+<p>flex item <code>不可延伸</code>與<code>收縮</code>，會依照 width 或 height (視主軸 main axis 而定)屬性決定其尺寸。</p>
+<br>
+<h3 id="flex-positive-number"><a class="header-anchor" href="#flex-positive-number"></a>flex: positive-number</h3>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">flex</span>: &lt;正數&gt;;</span><br></pre></td></tr></table></figure>
+<p>等同於</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">flex</span>: &lt;正數&gt; 1 0;</span><br></pre></td></tr></table></figure>
+<p>flex item <code>可延伸</code>與<code>收縮</code>，flex-basis 為 <code>0</code>，故 flex item 會依據所設定的比例佔用 container 中的剩餘空間。</p>
+<p>例如</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">flex</span>: 2;</span><br></pre></td></tr></table></figure>
+<p>等同於</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">flex</span>: 2 1 0;</span><br></pre></td></tr></table></figure>
+<p>可利用此種屬性值的指定方式，輕易地決定 <code>flex items</code> 在 <code>flex container</code> 中所佔的尺寸<code>比例</code> (width 或 height，視主軸 main axis 而定)。</p>
+<br>
+<p>例如，一個 flex container 裡面有三個 flex items，希望不管 container 如何變化，這三個 items 的<code>尺寸皆一樣大</code>，則可設定每個 items 的 flex 屬性有相同的正數(positive-number)。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">120px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item1</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;   <span class="comment">/* 將得到容器中剩餘空間的 1/(1+1+1)＝1/3 等份 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item2</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;   <span class="comment">/* 將得到容器中剩餘空間的 1/(1+1+1)＝1/3 等份 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item3</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;   <span class="comment">/* 將得到容器中剩餘空間的 1/(1+1+1)＝1/3 等份 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>註：只要是<code>相同正數</code>即可，其僅代表<code>比例</code>關係。</p>
+<p><img src="https://i.imgur.com/wWL2qtn.png" alt=""></p>
+<p>且不論容器如何變動(例如縮放視窗時)，比例皆為 <code>1 : 1 : 1</code>。</p>
+<p><img src="https://i.imgur.com/xNoC0bS.gif" alt=""></p>
+<br>
+<p>同理，若希望這三個 flex items 的尺寸比例分別為 <code>3 : 2 : 1</code>，則可設定：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item1</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">3</span>;   <span class="comment">/* 將得到容器中剩餘空間的 3/(3+2+1)＝3/6 等份 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item2</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">2</span>;   <span class="comment">/* 將得到容器中剩餘空間的 2/(3+2+1)＝2/6 等份 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item3</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;   <span class="comment">/* 將得到容器中剩餘空間的 1/(3+2+1)＝1/6 等份 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/L1azPUh.png" alt=""></p>
+<p>且不論容器如何變動(例如縮放視窗時)，比例皆為 <code>3 : 2 : 1</code>。</p>
+<p><img src="https://i.imgur.com/qIBQMX1.gif" alt=""></p>
+<br>
+<br>
+<br>
+<p>有關於 flex 屬性以及伸縮的計算方式就介紹到此，下一篇將繼續介紹 flex 的各種對齊方式。</p>
+<br>
+<br>
+<br>
+<br>
+<p><b>參考資源</b></p>
+<ol>
+<li><a href="https://www.w3.org/TR/css-flexbox-1/#flexibility">W3C-CSS Flexible Box Layout Module Level 1</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Controlling_Ratios_of_Flex_Items_Along_the_Main_Ax">MDN-Controlling Ratios of Flex Items Along the Main Axis</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10194694">前端新手村 flex grow &amp; shrink 演算法</a></li>
+</ol>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/CSS/" rel="tag">CSS</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/article/Flex.html">
+                <span class="level-item">CSS 原理 - Flex(上)</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">comments</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '55257ba0d3e214c6eb38',
+        clientSecret: '2655b53e34f22f8e80ba21478704ab5b7a908bfb',
+        id: '76583ebf904dfb9f67c322c7c60b6f23',
+        repo: 'yachen168.github.io',
+        owner: 'yachen168',
+        admin: "yachen168",
+        createIssueManually: false,
+        distractionFreeMode: false
+    })
+    gitalk.render('comment-container')
+</script>
+
+    </div>
+</div>
+
+                        </div>
+                        
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="yachen">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        yachen
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Taiwan</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            10
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categorie
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            1
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            2
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/yachen168" target="_blank" rel="noopener">
+                Follow</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/yachen168">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://www.facebook.com/profile.php?id=100001269953108">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="RSS" href="/atom.xml">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    catalogue
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#名詞介紹">
+        <span class="has-mr-6">1</span>
+        <span>名詞介紹</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#positive-free-space">
+        <span class="has-mr-6">1.1</span>
+        <span>positive free space</span>
+        </a></li><li>
+        <a class="is-flex" href="#negative-free-space">
+        <span class="has-mr-6">1.2</span>
+        <span>negative free space</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#flex-屬性">
+        <span class="has-mr-6">2</span>
+        <span>flex 屬性</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#flex-grow">
+        <span class="has-mr-6">2.1</span>
+        <span>flex-grow</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#計算方式">
+        <span class="has-mr-6">2.1.1</span>
+        <span>計算方式</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#flex-shrink">
+        <span class="has-mr-6">2.2</span>
+        <span>flex-shrink</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#計算方式-v2">
+        <span class="has-mr-6">2.2.1</span>
+        <span>計算方式</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#flex-basis">
+        <span class="has-mr-6">2.3</span>
+        <span>flex-basis</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#flex-屬性另類寫法">
+        <span class="has-mr-6">3</span>
+        <span>flex 屬性另類寫法</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#flex-initial">
+        <span class="has-mr-6">3.1</span>
+        <span>flex: initial</span>
+        </a></li><li>
+        <a class="is-flex" href="#flex-auto">
+        <span class="has-mr-6">3.2</span>
+        <span>flex: auto</span>
+        </a></li><li>
+        <a class="is-flex" href="#flex-none">
+        <span class="has-mr-6">3.3</span>
+        <span>flex: none</span>
+        </a></li><li>
+        <a class="is-flex" href="#flex-positive-number">
+        <span class="has-mr-6">3.4</span>
+        <span>flex: positive-number</span>
+        </a></li></ul></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent Posts
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/article/Flex2.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.imgur.com/qmupIlt.png" alt="CSS 原理 - Flex(中)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-10T07:54:33.000Z">2020-05-10</time></div>
+                    <a href="/article/Flex2.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">CSS 原理 - Flex(中)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web/">web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/article/Flex.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.imgur.com/qmupIlt.png" alt="CSS 原理 - Flex(上)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-08T05:32:37.000Z">2020-05-08</time></div>
+                    <a href="/article/Flex.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">CSS 原理 - Flex(上)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web/">web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/article/Position.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.imgur.com/qmupIlt.png" alt="CSS 原理 - position">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-31T12:03:24.000Z">2020-03-31</time></div>
+                    <a href="/article/Position.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">CSS 原理 - position</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web/">web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/article/Block-formatting-context.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.imgur.com/qmupIlt.png" alt="CSS 原理 - Block Formatting Context">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-12T08:35:37.000Z">2020-03-12</time></div>
+                    <a href="/article/Block-formatting-context.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">CSS 原理 - Block Formatting Context</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web/">web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/article/Formatting-context.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://i.imgur.com/qmupIlt.png" alt="CSS 原理 - Formatting Context">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-04T07:23:52.000Z">2020-03-04</time></div>
+                    <a href="/article/Formatting-context.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">CSS 原理 - Formatting Context</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web/">web</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+        </div>
+    
+</div>
+
+                            
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <!-- <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/avatar.png" alt="CSS 原理 - Flex(中)" height="28">
+                
+                </a> -->
+                <p class="is-size-7">
+                    &copy;
+                    2020
+                        yachen&nbsp; <br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                            
+                </p>
+            </div>
+            <div class="level-end">
+                
+            </div>
+        </div>
+    </div>
+</footer>
+                <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-Hant");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://yachen168.github.io',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+                    
+                        <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Tippen Sie etwas..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Seiten',
+                CATEGORIES: 'categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Unbenannt)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+                            
+</body>
+
+</html>
