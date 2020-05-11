@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yachen168.github.io/"/>
-  <updated>2020-05-10T10:28:30.479Z</updated>
+  <updated>2020-05-11T03:38:19.706Z</updated>
   <id>https://yachen168.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS 原理 - Flex(下)</title>
+    <link href="https://yachen168.github.io/article/Flex3.html"/>
+    <id>https://yachen168.github.io/article/Flex3.html</id>
+    <published>2020-05-11T02:53:54.000Z</published>
+    <updated>2020-05-11T03:38:19.706Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;vertical-align、text-align 甚至 float 都是控制不了 flex items 的，flex 有自己專屬的對齊屬性，而因對齊分為水平對齊與垂直對齊，所以首先要先認清楚誰是主軸(main axis)誰是副軸(cross axis)，才不會精神分裂。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
+    
+    
+      <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS 原理 - Flex(中)</title>
