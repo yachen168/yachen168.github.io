@@ -31,7 +31,7 @@
 <meta property="og:description" content="vertical-align、text-align 甚至 float 都是控制不了 flex items 的，flex 有自己專屬的對齊屬性，而因對齊分為水平對齊與垂直對齊，所以首先要先認清楚誰是主軸(main axis)誰是副軸(cross axis)，才不會精神分裂。">
 <meta property="og:image" content="https://i.imgur.com/qmupIlt.png">
 <meta property="article:published_time" content="2020-05-11T02:53:54.000Z">
-<meta property="article:modified_time" content="2020-05-11T03:38:19.706Z">
+<meta property="article:modified_time" content="2020-05-15T16:23:36.048Z">
 <meta property="article:author" content="yachen">
 <meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
@@ -129,12 +129,12 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="catalogue" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catálogo" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="Suche" href="javascript:;">
+                <a class="navbar-item search" title="Buscar" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -170,7 +170,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    9 minutes read (About 1364 words)
+                    9 minutes leer (Acerca de 1364 palabras)
                 </span>
                 
                 
@@ -311,7 +311,7 @@
 <br>
 <br>
 <br>
-<h4 id="總整理"><a class="header-anchor" href="#總整理"></a>總整理</h4>
+<h3 id="總整理"><a class="header-anchor" href="#總整理"></a>總整理</h3>
 <ul>
 <li>
 <p><strong>適用於 flex container</strong></p>
@@ -340,9 +340,9 @@
 <br>
 <p><b>參考資料</b></p>
 <ol>
-<li><a href="https://www.w3.org/TR/css-flexbox-1/#justify-content-property">W3C-Flexible Box Layout Module Level 1</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Aligning_Items_in_a_Flex_Container">MDN-Aligning Items in a Flex Container</a></li>
-<li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS TRICKS-A Complete Guide to Flexbox</a></li>
+<li><a href="https://www.w3.org/TR/css-flexbox-1/#justify-content-property">W3C - Flexible Box Layout Module Level 1</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Aligning_Items_in_a_Flex_Container">MDN - Aligning Items in a Flex Container</a></li>
+<li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS TRICKS - A Complete Guide to Flexbox</a></li>
 </ol>
 
         </div>
@@ -383,7 +383,7 @@
 
 <div class="card">
     <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">comments</h3>
+        <h3 class="title is-5 has-text-weight-normal">Comentarios</h3>
         
 <div id="comment-container"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
@@ -454,7 +454,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categorie
+                        Categoría
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
@@ -479,7 +479,7 @@
         
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/yachen168" target="_blank" rel="noopener">
-                Follow</a>
+                SEGUIR</a>
         </div>
         
         
@@ -518,7 +518,7 @@
         <div class="card-content">
             <div class="menu">
                 <h3 class="menu-label">
-                    catalogue
+                    Catálogo
                 </h3>
                 <ul class="menu-list"><li>
         <a class="is-flex" href="#flex-的對齊">
@@ -640,11 +640,11 @@
         <a class="is-flex" href="#•-baseline-v2">
         <span class="has-mr-6">1.4.5</span>
         <span>• baseline</span>
-        </a></li><li>
+        </a></li></ul></li><li>
         <a class="is-flex" href="#總整理">
-        <span class="has-mr-6">1.4.6</span>
+        <span class="has-mr-6">1.5</span>
         <span>總整理</span>
-        </a></li></ul></li></ul></li></ul>
+        </a></li></ul></li></ul>
             </div>
         </div>
     </div>
@@ -653,7 +653,7 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent Posts
+            Recientes
         </h3>
         
         <article class="media">
@@ -890,7 +890,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Tippen Sie etwas..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something" />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -903,10 +903,10 @@ document.addEventListener('DOMContentLoaded', function () {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: 'Posts',
-                PAGES: 'Seiten',
-                CATEGORIES: 'categories',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
                 TAGS: 'Tags',
-                UNTITLED: '(Unbenannt)',
+                UNTITLED: 'Untitled',
             },
             CONTENT_URL: '/content.json',
         };
