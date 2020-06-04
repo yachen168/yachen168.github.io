@@ -31,7 +31,7 @@
 <meta property="og:description" content="在 JavaScript 中，改變函數內部 this 的指向常見的方式有 call()、apply()、bind()，而這三種方式又存在些微差異。">
 <meta property="og:image" content="https://yachen168.github.io/images/cover-js.png">
 <meta property="article:published_time" content="2020-06-04T09:29:48.000Z">
-<meta property="article:modified_time" content="2020-06-04T10:00:09.110Z">
+<meta property="article:modified_time" content="2020-06-04T10:23:29.366Z">
 <meta property="article:author" content="yachen">
 <meta property="article:tag" content="w3HexSchool">
 <meta property="article:tag" content="JavaScript">
@@ -130,12 +130,12 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="catalogue" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catálogo" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="Suche" href="javascript:;">
+                <a class="navbar-item search" title="Buscar" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -171,7 +171,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8 minutes read (About 1202 words)
+                    8 minutes leer (Acerca de 1204 palabras)
                 </span>
                 
                 
@@ -254,6 +254,7 @@
 <p>再試著輸入以下代碼，事實證明 <code>newFoo</code> 不等於 <code>foo</code>。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(newFoo === foo);   <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
 <br>
+<br>
 <p>在開發中，最常使用的應該是 <code>bind()</code>，因為很多情況下我們只是想改變 <code>this</code>，不想同時執行函數。</p>
 <p>例如現在有一個按鈕，想要在用戶點擊後，禁用此按鈕 3 秒。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button&gt;按鈕&lt;&#x2F;button&gt;</span><br></pre></td></tr></table></figure>
@@ -264,7 +265,7 @@
 <p>這時候 <code>bind()</code> 就可以派上用場了，因為不想要在改變 <code>this</code> 的同時執行 <code>this.disabled = false</code>，而是希望透過定時器 3 秒後執行，此時就不適用 <code>call()</code> 與 <code>apply()</code>。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eventHandler</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// this 指向按鈕 btn</span></span><br><span class="line">    <span class="keyword">this</span>.disabled = <span class="literal">true</span>;</span><br><span class="line">    </span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.disabled = <span class="literal">false</span>;</span><br><span class="line">    &#125;.bind(<span class="keyword">this</span>),<span class="number">3000</span>)  <span class="comment">// this 改指向按鈕 btn</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
-<p>當然，也可以直接將定時器裡的 callback function 改成箭頭函式的形式來解決。</p>
+<p>當然，也可以直接將定時器裡的 callback function 改成<code>箭頭函式(arrow function)</code>的形式來解決。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eventHandler</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.disabled = <span class="literal">true</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 改為箭頭函式</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="comment">// this 指向 btn</span></span><br><span class="line">        <span class="keyword">this</span>.disabled = <span class="literal">false</span>;</span><br><span class="line">    &#125;,<span class="number">3000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <br>
 <br>
@@ -347,7 +348,7 @@
 
 <div class="card">
     <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">comments</h3>
+        <h3 class="title is-5 has-text-weight-normal">Comentarios</h3>
         
 <div id="comment-container"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
@@ -418,7 +419,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categorie
+                        Categoría
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
@@ -443,7 +444,7 @@
         
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/yachen168" target="_blank" rel="noopener">
-                Follow</a>
+                SEGUIR</a>
         </div>
         
         
@@ -482,7 +483,7 @@
         <div class="card-content">
             <div class="menu">
                 <h3 class="menu-label">
-                    catalogue
+                    Catálogo
                 </h3>
                 <ul class="menu-list"><li>
         <a class="is-flex" href="#call">
@@ -513,7 +514,7 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent Posts
+            Recientes
         </h3>
         
         <article class="media">
@@ -726,7 +727,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
+<a id="back-to-top" title="Back to Top" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -750,7 +751,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Tippen Sie etwas..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something" />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -763,10 +764,10 @@ document.addEventListener('DOMContentLoaded', function () {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: 'Posts',
-                PAGES: 'Seiten',
-                CATEGORIES: 'categories',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
                 TAGS: 'Tags',
-                UNTITLED: '(Unbenannt)',
+                UNTITLED: 'Untitled',
             },
             CONTENT_URL: '/content.json',
         };
