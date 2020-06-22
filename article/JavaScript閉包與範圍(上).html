@@ -20,21 +20,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Archive: 2020/6 - yachen</title>
+<title>JavaScript 閉包與作用範圍 ── Execution Context - yachen</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="yachen">
-<meta property="og:url" content="https://yachen168.github.io/archives/2020/06/index.html">
+    <meta name="description" content="閉包(closure)在 JavaScript 中佔著重要的地位，但閉包本人其實不太好搞，先從與閉包密不可分的 ── 作用範圍(Scope)開始下手吧！這篇將從執行背景空間(execution context)開始介紹，一步步看 JavaScript 引擎是如何追蹤程式碼的執行，然後…等時機到了就會知道什麼是閉包了(吧)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 閉包與作用範圍 ── Execution Context">
+<meta property="og:url" content="https://yachen168.github.io/article/JavaScript%E9%96%89%E5%8C%85%E8%88%87%E7%AF%84%E5%9C%8D(%E4%B8%8A).html">
 <meta property="og:site_name" content="yachen">
-<meta property="og:image" content="https://yachen168.github.io/images/og_image.png">
+<meta property="og:description" content="閉包(closure)在 JavaScript 中佔著重要的地位，但閉包本人其實不太好搞，先從與閉包密不可分的 ── 作用範圍(Scope)開始下手吧！這篇將從執行背景空間(execution context)開始介紹，一步步看 JavaScript 引擎是如何追蹤程式碼的執行，然後…等時機到了就會知道什麼是閉包了(吧)。">
+<meta property="og:image" content="https://yachen168.github.io/images/cover-js.png">
+<meta property="article:published_time" content="2020-06-21T13:27:57.000Z">
+<meta property="article:modified_time" content="2020-06-22T03:39:12.848Z">
 <meta property="article:author" content="yachen">
-<meta property="article:tag" content="yachen">
-<meta property="article:tag" content="hexo">
-<meta property="article:tag" content="前端">
-<meta property="article:tag" content="web">
+<meta property="article:tag" content="w3HexSchool">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://yachen168.github.io/images/og_image.png">
+<meta name="twitter:image" content="https://yachen168.github.io/images/cover-js.png">
 
 
 
@@ -95,7 +97,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/avatar.png" alt="yachen" height="28">
+                <img src="/images/avatar.png" alt="JavaScript 閉包與作用範圍 ── Execution Context" height="28">
             
             </a>
         </div>
@@ -128,6 +130,10 @@
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="Suche" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -143,119 +149,206 @@
                     <div class="columns">
                         <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
                             
-
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="tag is-link">
-        June 2020
-        </h3>
-        <div class="timeline">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/./images/cover-js.png" alt="JavaScript 閉包與作用範圍 ── Execution Context">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
         
-            <article class="media">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-06-21T13:27:57.000Z">2020-06-21</time>
                 
-                <a href="/article/JavaScript%E9%96%89%E5%8C%85%E8%88%87%E7%AF%84%E5%9C%8D(%E4%B8%8A).html" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="/./images/cover-js.png" alt="JavaScript 閉包與作用範圍 ── Execution Context">
-                    </p>
-                </a>
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-06-21T13:27:57.000Z">2020-06-21</time>
-                        <a href="/article/JavaScript%E9%96%89%E5%8C%85%E8%88%87%E7%AF%84%E5%9C%8D(%E4%B8%8A).html" class="title has-link-black-ter is-size-6 has-text-weight-normal">JavaScript 閉包與作用範圍 ── Execution Context</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/web/">web</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/web/">web</a>
                 </div>
-            </article>
-        
-            <article class="media">
                 
-                <a href="/article/%E7%94%A8%E7%B4%94CSS%E5%81%9A%E5%AE%9A%E6%A0%BC%E5%8B%95%E7%95%AB.html" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="/./images/cover-css.png" alt="用純 CSS 做定格動畫">
-                    </p>
-                </a>
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-06-13T04:54:55.000Z">2020-06-13</time>
-                        <a href="/article/%E7%94%A8%E7%B4%94CSS%E5%81%9A%E5%AE%9A%E6%A0%BC%E5%8B%95%E7%95%AB.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">用純 CSS 做定格動畫</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/web/">web</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 minutes read (Acerca de 1723 words)
+                </span>
                 
-                <a href="/article/vue-devtools%E7%84%A1%E6%B3%95%E9%96%8B%E5%95%9F.html" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="/./images/cover-vue.png" alt="解決 Vue.js-devtools 無法開啟問題">
-                    </p>
-                </a>
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-06-08T17:18:59.000Z">2020-06-09</time>
-                        <a href="/article/vue-devtools%E7%84%A1%E6%B3%95%E9%96%8B%E5%95%9F.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">解決 Vue.js-devtools 無法開啟問題</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/web/">web</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <a href="/article/%E6%94%B9%E8%AE%8A%E5%87%BD%E5%BC%8F%E7%9A%84this.html" class="media-left">
-                    <p class="image is-64x64">
-                        <img class="thumbnail" src="/./images/cover-js.png" alt="三種改變函式內部 this 的方式：apply()、call()、bind()">
-                    </p>
-                </a>
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-06-04T09:29:48.000Z">2020-06-04</time>
-                        <a href="/article/%E6%94%B9%E8%AE%8A%E5%87%BD%E5%BC%8F%E7%9A%84this.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">三種改變函式內部 this 的方式：apply()、call()、bind()</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/web/">web</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
+            </div>
         </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                JavaScript 閉包與作用範圍 ── Execution Context
+            
+        </h1>
+        <div class="content">
+            <p>閉包(closure)在 JavaScript 中佔著重要的地位，但閉包本人其實不太好搞，先從與閉包密不可分的 ── 作用範圍(Scope)開始下手吧！這篇將從執行背景空間(execution context)開始介紹，一步步看 JavaScript 引擎是如何追蹤程式碼的執行，然後…等時機到了就會知道什麼是閉包了(吧)。</p>
+<a id="more"></a>
+<p>如果不相信閉包本人很難搞的話，可以打開 MDN，你會看到<strong>閉包的定義</strong>為：</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">英版 MDN</a>：</p>
+<blockquote>
+<p>A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function’s scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.</p>
+</blockquote>
+<p><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Closures">中版 MDN</a>：</p>
+<blockquote>
+<p>閉包（Closure）是函式以及該函式被宣告時所在的作用域環境（lexical environment）的組合。</p>
+</blockquote>
+<br>
+<img src="https://i.imgur.com/045RJSL.png" width="320px">
+<br>
+<br>
+<p>如果你看不懂 MDN 在說什麼，別鐵齒了~還是先繞過閉包本人吧！</p>
+<br>
+<h2 id="Execution-Context-執行背景空間"><a class="header-anchor" href="#Execution-Context-執行背景空間"></a>Execution Context (執行背景空間)</h2>
+<p>由於 JavaScript 屬於單執行緒(Single Thread)，也就是它「<code>一次只能做一件事</code>」，所以當它要去執行另一件任務 B 時，就勢必得先暫停手上正在進行的任務 A，等待任務 B 執行完畢後，再回過頭繼續完成任務 A。若是在執行任務 B 時，又被叫去做任務 Ｃ，這時又得停下手邊的任務 B，先去執行完任務 C，接著回頭處理完任務 B，最後再回到任務 A。以此類推。</p>
+<p>因此所有一連串的任務都需要被追蹤，而每個任務都有一個<code>執行背景空間(execution context)</code>。</p>
+<p>在 JavaScript 中，有兩種執行背景空間(execution context)：</p>
+<ol>
+<li><strong>全域執行背景空間</strong></li>
+</ol>
+<blockquote>
+<p>只有一個，且總是最早被建立的，負責處理全域中的程式碼。</p>
+</blockquote>
+<ol start="2">
+<li><strong>函式執行背景空間</strong></li>
+</ol>
+<blockquote>
+<p>每<code>呼叫</code>函式一次，就會建立一個新的函式執行背景空間，負責處理函式中的程式碼。</p>
+</blockquote>
+<br>
+<p>JavaScript 引擎利用<code>呼叫堆疊(call stack)</code>來追蹤所有任務。</p>
+<br>
+<br>
+<p>stack 中的執行背景空間會「後進先出」，也就是較晚被堆疊進來的執行背景空間，會先被 pop 出去。</p>
+<p>現在用個例子來看看執行背景空間(execution context)究竟是如何堆疊的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  b();    <span class="comment">// 呼叫函式 b</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'函式 b 被執行了'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a();    <span class="comment">// 第一次呼叫函式 a</span></span><br><span class="line">a();    <span class="comment">// 第二次呼叫函式 a</span></span><br></pre></td></tr></table></figure>
+<br>
+<p><img src="https://i.imgur.com/1aoMHGq.png" alt=""><br>
+<img src="https://i.imgur.com/CTDEBoE.png" alt=""></p>
+<ol>
+<li>
+<p>最先被創建的永遠是全域執行背景空間。<br>
+<br></p>
+</li>
+<li>
+<p>在全域下，定義了函式 a 與函式 b，接著<strong>呼叫了函式 a</strong> (第 9 行)，於是建立 a 函式執行背景空間，並堆放至 stack 中，由於 JavaScript 一次只能做一件事，所以此時全域執行背景空間會被暫停。<br>
+<br></p>
+</li>
+<li>
+<p>因在函式 a 中又<strong>呼叫了函式 b</strong>，於是建立 b 函式執行背景空間，並堆放至 stack 中，此時 a 函式執行背景空間會被暫停。<br>
+<br></p>
+</li>
+<li>
+<p>印出「函式 b 被執行了」後，b 函式執行完畢，於是 b 函式執行背景空間從 stack 中移出(pop)，回到了 a 函式執行背景空間繼續執行。<br>
+<br></p>
+</li>
+<li>
+<p>a 函式執行完畢(a 函式中也已經沒有其他程式碼需要被執行了)，a 函式執行背景空間從 stack 中移出，回到全域執行背景空間繼續執行。<br>
+<br></p>
+</li>
+<li>
+<p>在全域下，第 10 行中又再次<strong>呼叫函式 a</strong>，以上 2~5 的過程又重複一次。</p>
+</li>
+</ol>
+<br>
+<p>我們也可以在瀏覽器的除錯工具中觀察 call stack 的變化，來驗證一下過程是不是如上述一樣。</p>
+<p>首先在 VScode 中開啟 live server，接著打開開發者工具(按 F12)，點選 <code>Source</code>，然後選擇要觀察的 js 檔案。</p>
+<p><img src="https://i.imgur.com/9QtZBy6.png" alt=""></p>
+<br>
+<p>點擊左邊的行數來下中斷點，一個紅點代表一個中斷點(範例中將中斷點下在第 9 行)。</p>
+<p>然後重新整理一下頁面。</p>
+<p>會發現在 call stack 欄位中，出現一個 (anonymous)，它就是全域執行背景空間(global execution context)。要注意的是，此時第 9 行的程式碼尚未被執行。</p>
+<p><img src="https://i.imgur.com/Y4Lvx2w.png" alt=""></p>
+<p>接著按下一步，開始執行第 9 行程式碼，也就是<strong>呼叫函式 a</strong>。<br>
+會發現 call stack 中被疊加了 a 函式執行背景空間。</p>
+<p><img src="https://i.imgur.com/sJb1wuF.png" alt=""><br>
+<img src="https://i.imgur.com/5EYxFyc.png" alt=""></p>
+<p>接著繼續按下一步，執行函式 a 中的程式碼，也就是<strong>呼叫函式 b</strong>。會發現 call stack 中又被疊加了 b 函式執行背景空間，此時 a 函式執行背景空間被暫停。</p>
+<p><img src="https://i.imgur.com/YpH3TcJ.png" alt=""></p>
+<p>接著再按下一步，執行完函式 b 中的程式碼(console.log)，b 函式執行背景空間從 call stack 中彈出，恢復執行 a 函式執行背景空間。</p>
+<p><img src="https://i.imgur.com/WpiFoKg.png" alt=""></p>
+<p>接著繼續按下一步，因函式 a 中，在呼叫函式 b 之後，已經無其他程式碼需要被執行，所以函式 a 也執行完畢，a 函式執行背景空間彈出 call stack，恢復執行全域執行背景空間。</p>
+<p><img src="https://i.imgur.com/MgZCMNx.png" alt=""></p>
+<br>
+<p>因全域執行背景空間中，第 10 行程式碼還沒被執行(再次呼叫函式 a)，所以繼續按下一步，會發現剛剛的過程又會重複一遍。</p>
+<br>
+<br>
+<p>除了 call stack 之外， Web API、Task Queue、Event Loop 也扮演著重要的角色，推薦參考影片 <a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">What the heck is the event loop anyway?</a>，該影片將 JS 引擎的運作流程解釋得非常淺顯易懂。</p>
+<br>
+<p>執行背景空間(execution context) 就簡單的介紹到此，在這篇文章中，瞭解到 JavaScript 引擎如何透過執行背景空間來追蹤程式碼的執行，下一篇將繼續介紹 JavaScript 如何透過字彙環境(lexical environment)來追蹤變數和函式的作用範圍。</p>
+<br>
+<br>
+<br>
+<br>
+<p><b>參考資料</b></p>
+<ol>
+<li><a href="https://www.books.com.tw/products/0010773867">忍者：JavaScript開發技巧探秘第二版</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">MDN - closure</a></li>
+<li><a href="https://www.youtube.com/watch?v=Bv_5Zv5c-Ts">JavaScript: Understanding the Weird Parts</a></li>
+<li><a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">What the heck is the event loop anyway?</a></li>
+</ol>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="has-link-grey -link" href="/tags/w3HexSchool/" rel="tag">w3HexSchool</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
     </div>
 </div>
 
 
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/article/%E7%94%A8%E7%B4%94CSS%E5%81%9A%E5%AE%9A%E6%A0%BC%E5%8B%95%E7%95%AB.html">
+                <span class="level-item">用純 CSS 做定格動畫</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">comments</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: '55257ba0d3e214c6eb38',
+        clientSecret: '2655b53e34f22f8e80ba21478704ab5b7a908bfb',
+        id: '01b0077b707a542089b0f8f5d7725451',
+        repo: 'yachen168.github.io',
+        owner: 'yachen168',
+        admin: "yachen168",
+        createIssueManually: false,
+        distractionFreeMode: false
+    })
+    gitalk.render('comment-container')
+</script>
+
+    </div>
+</div>
 
                         </div>
                         
@@ -365,6 +458,22 @@
 </div>
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    catalogue
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#Execution-Context-執行背景空間">
+        <span class="has-mr-6">1</span>
+        <span>Execution Context (執行背景空間)</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
@@ -487,7 +596,7 @@
             <div class="level-start has-text-centered-mobile">
                 <!-- <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/avatar.png" alt="yachen" height="28">
+                    <img src="/images/avatar.png" alt="JavaScript 閉包與作用範圍 ── Execution Context" height="28">
                 
                 </a> -->
                 <p class="is-size-7">

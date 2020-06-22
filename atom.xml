@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yachen168.github.io/"/>
-  <updated>2020-06-13T10:10:34.664Z</updated>
+  <updated>2020-06-22T03:39:12.848Z</updated>
   <id>https://yachen168.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript 閉包與作用範圍 ── Execution Context</title>
+    <link href="https://yachen168.github.io/article/JavaScript%E9%96%89%E5%8C%85%E8%88%87%E7%AF%84%E5%9C%8D(%E4%B8%8A).html"/>
+    <id>https://yachen168.github.io/article/JavaScript%E9%96%89%E5%8C%85%E8%88%87%E7%AF%84%E5%9C%8D(%E4%B8%8A).html</id>
+    <published>2020-06-21T13:27:57.000Z</published>
+    <updated>2020-06-22T03:39:12.848Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;閉包(closure)在 JavaScript 中佔著重要的地位，但閉包本人其實不太好搞，先從與閉包密不可分的 ── 作用範圍(Scope)開始下手吧！這篇將從執行背景空間(execution context)開始介紹，一步步看 JavaScript 引擎是如何追蹤程式碼的執行，然後…等時機到了就會知道什麼是閉包了(吧)。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
+    
+    
+      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
+    
+      <category term="JavaScript" scheme="https://yachen168.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>用純 CSS 做定格動畫</title>
