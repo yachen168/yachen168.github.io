@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yachen168.github.io/"/>
-  <updated>2020-06-22T04:04:19.500Z</updated>
+  <updated>2020-06-22T04:08:57.847Z</updated>
   <id>https://yachen168.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>JavaScript 閉包與範圍 ── Execution Context</title>
-    <link href="https://yachen168.github.io/article/JavaScript%E9%96%89%E5%8C%85%E8%88%87%E7%AF%84%E5%9C%8D(Execution%20Context).html"/>
-    <id>https://yachen168.github.io/article/JavaScript%E9%96%89%E5%8C%85%E8%88%87%E7%AF%84%E5%9C%8D(Execution%20Context).html</id>
+    <link href="https://yachen168.github.io/article/JavaScript%E9%96%89%E5%8C%85%E8%88%87%E7%AF%84%E5%9C%8Dexecution-context.html"/>
+    <id>https://yachen168.github.io/article/JavaScript%E9%96%89%E5%8C%85%E8%88%87%E7%AF%84%E5%9C%8Dexecution-context.html</id>
     <published>2020-06-21T13:27:57.000Z</published>
-    <updated>2020-06-22T04:04:19.500Z</updated>
+    <updated>2020-06-22T04:08:57.847Z</updated>
     
     <summary type="html">
     
