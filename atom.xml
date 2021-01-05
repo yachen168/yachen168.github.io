@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yachen168.github.io/"/>
-  <updated>2020-06-22T04:08:57.847Z</updated>
+  <updated>2021-01-05T09:14:01.663Z</updated>
   <id>https://yachen168.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>讓網頁平滑滾動!</title>
+    <link href="https://yachen168.github.io/article/Smooth-Scrolling.html"/>
+    <id>https://yachen168.github.io/article/Smooth-Scrolling.html</id>
+    <published>2021-01-05T08:09:05.000Z</published>
+    <updated>2021-01-05T09:14:01.663Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在網頁開發中，錨點算是個常見的需求，例如：在點擊按鈕後，畫面想要蝦趴的「滑」到頂部。&lt;/p&gt;
+&lt;p&gt;這種平滑的滾動效果，其實只要加一行 CSS 就可以辦得到，無需勞動到 JS，也就是今天要介紹的 &lt;code&gt;scroll-behavior&lt;/code&gt; 屬性，直接進入實作吧!&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
+    
+    
+      <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript 閉包與範圍 ── Execution Context</title>
@@ -56,9 +78,9 @@
       <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
     
     
-      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
-    
       <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
+    
+      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
     
   </entry>
   
@@ -208,9 +230,9 @@
       <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
     
     
-      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
-    
       <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
+    
+      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
     
   </entry>
   
@@ -231,9 +253,9 @@
       <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
     
     
-      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
-    
       <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
+    
+      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
     
   </entry>
   
@@ -254,9 +276,9 @@
       <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
     
     
-      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
-    
       <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
+    
+      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
     
   </entry>
   
@@ -277,9 +299,9 @@
       <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
     
     
-      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
-    
       <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
+    
+      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
     
   </entry>
   
@@ -325,9 +347,9 @@
       <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
     
     
-      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
-    
       <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
+    
+      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
     
   </entry>
   
@@ -336,7 +358,7 @@
     <link href="https://yachen168.github.io/article/box-model.html"/>
     <id>https://yachen168.github.io/article/box-model.html</id>
     <published>2020-01-30T03:19:42.000Z</published>
-    <updated>2020-06-04T10:09:29.190Z</updated>
+    <updated>2020-07-05T03:58:13.943Z</updated>
     
     <summary type="html">
     

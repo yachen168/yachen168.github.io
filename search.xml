@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>讓網頁平滑滾動!</title>
+      <link href="/article/Smooth-Scrolling.html"/>
+      <url>/article/Smooth-Scrolling.html</url>
+      
+        <content type="html"><![CDATA[<p>在網頁開發中，錨點算是個常見的需求，例如：在點擊按鈕後，畫面想要蝦趴的「滑」到頂部。</p><p>這種平滑的滾動效果，其實只要加一行 CSS 就可以辦得到，無需勞動到 JS，也就是今天要介紹的 <code>scroll-behavior</code> 屬性，直接進入實作吧!</p><a id="more"></a><h2 id="實作範例"><a class="header-anchor" href="#實作範例"></a>實作範例</h2><p><b>情境：</b><br>現在頁面上有很多區塊(達到可滾動的狀態)，而不管畫面在哪，只要<code>點擊右下角橘色按鈕，就要滑動到最上方</code>。<br><a href="https://codepen.io/yachen/pen/gOwzmVo?editors=1100">codepen 原始碼範例</a></p><p><img src="./Smooth-Scrolling/situation.png" alt=""></p><br><p>HTML 如下:</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"top"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span>1<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span>2<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span>3<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span>4<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span>5<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span>6<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span>7<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span>8<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span>9<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span>10<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"btn-back"</span> <span class="attr">href</span>=<span class="string">"#top"</span>&gt;</span></span><br><span class="line">  ↑</span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure><p>CSS 的部分，在 html 加上 <code>scroll-behavior: smooth</code> 即可。</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">scroll-behavior</span>: smooth;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>實際效果如下：</p><p><img src="./Smooth-Scrolling/result.gif" alt=""></p><br><p>最後，順帶看一下瀏覽器兼容性:</p><p><img src="./Smooth-Scrolling/browser-compatibility.png" alt=""><br>圖片來源: <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/scroll-behavior">MDN</a></p><br><p>結束XD</p><br><br/><br/><p><b>參考資源</b><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/scroll-behavior">MDN-scroll-behavior</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CSS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JavaScript 閉包與範圍 ── Execution Context</title>
       <link href="/article/JavaScript%E9%96%89%E5%8C%85%E8%88%87%E7%AF%84%E5%9C%8Dexecution-context.html"/>
       <url>/article/JavaScript%E9%96%89%E5%8C%85%E8%88%87%E7%AF%84%E5%9C%8Dexecution-context.html</url>
@@ -47,9 +72,9 @@
       
         <tags>
             
-            <tag> w3HexSchool </tag>
-            
             <tag> CSS </tag>
+            
+            <tag> w3HexSchool </tag>
             
         </tags>
       
@@ -226,9 +251,9 @@
       
         <tags>
             
-            <tag> w3HexSchool </tag>
-            
             <tag> CSS </tag>
+            
+            <tag> w3HexSchool </tag>
             
         </tags>
       
@@ -253,9 +278,9 @@
       
         <tags>
             
-            <tag> w3HexSchool </tag>
-            
             <tag> CSS </tag>
+            
+            <tag> w3HexSchool </tag>
             
         </tags>
       
@@ -280,9 +305,9 @@
       
         <tags>
             
-            <tag> w3HexSchool </tag>
-            
             <tag> CSS </tag>
+            
+            <tag> w3HexSchool </tag>
             
         </tags>
       
@@ -307,9 +332,9 @@
       
         <tags>
             
-            <tag> w3HexSchool </tag>
-            
             <tag> CSS </tag>
+            
+            <tag> w3HexSchool </tag>
             
         </tags>
       
@@ -359,9 +384,9 @@
       
         <tags>
             
-            <tag> w3HexSchool </tag>
-            
             <tag> CSS </tag>
+            
+            <tag> w3HexSchool </tag>
             
         </tags>
       
