@@ -31,7 +31,7 @@
 <meta property="og:description" content="Vue3 Composition API 新增了 Teleport 功能，讓我們可以輕鬆的將組件傳送到指定的地方，很酷的是，它還能夠保存狀態!">
 <meta property="og:image" content="https://yachen168.github.io/images/cover-vue.png">
 <meta property="article:published_time" content="2021-01-24T12:40:37.000Z">
-<meta property="article:modified_time" content="2021-01-24T16:19:20.776Z">
+<meta property="article:modified_time" content="2021-01-24T16:23:36.442Z">
 <meta property="article:author" content="yachen">
 <meta property="article:tag" content="Vue3">
 <meta property="article:tag" content="composition API">
@@ -171,7 +171,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    12 minutes read (About 1726 words)
+                    12 minutes read (About 1730 words)
                 </span>
                 
                 
@@ -241,9 +241,9 @@
 <p>再次打開開發者工具檢視，可以看到 Modal 出現在 body 內的尾部(在 <app> 之後)，如此以來，即使在 Card 的 style 中設定了 transform、perspective 或 filter，Modal 皆不會受到影響，也不會有煩人的 z-index 問題。</p>
 <p><img src="./composition-api-teleport/with-teleport-dom.png" alt=""></p>
 <br>
-<h2 id="Teleport-特性"><a class="header-anchor" href="#Teleport-特性"></a>Teleport 特性</h2>
+<h2 id="Teleport-特性-保留狀態"><a class="header-anchor" href="#Teleport-特性-保留狀態"></a>Teleport 特性 - 保留狀態</h2>
 <p><code>Teleport</code> 還有一個特別之處是：裡面的狀態會被保存，就像是 &lt;keep-alive&gt; 那樣，不會被 destroyed(或 unmounted)。</p>
-<h2 id="範例-v2"><a class="header-anchor" href="#範例-v2"></a>範例</h2>
+<h3 id="範例-v2"><a class="header-anchor" href="#範例-v2"></a>範例</h3>
 <p>利用 &lt;Teleport&gt; 的 <code>disabled</code> 屬性來證明：</p>
 <p>首先讓 <code>isNumTeleport</code> 預設值為 <code>true</code>(表示 Teleport 內的東西不會被傳送出去)，當點擊按鈕時，就會 toggle <code>isNumTeleport</code> 變數，使 &lt;Teleport&gt; 內東西可以在 &lt;Card&gt; 與 &lt;body&gt; 之間來回穿梭。</p>
 <p>而 &lt;Teleport&gt; 內為 <code>num</code>，每 1 秒會增加 1。</p>
@@ -465,16 +465,16 @@
         <span class="has-mr-6">2.1.2</span>
         <span>使用 Teleport 後</span>
         </a></li></ul></li></ul></li><li>
-        <a class="is-flex" href="#Teleport-特性">
+        <a class="is-flex" href="#Teleport-特性-保留狀態">
         <span class="has-mr-6">3</span>
-        <span>Teleport 特性</span>
-        </a></li><li>
+        <span>Teleport 特性 - 保留狀態</span>
+        </a><ul class="menu-list"><li>
         <a class="is-flex" href="#範例-v2">
-        <span class="has-mr-6">4</span>
+        <span class="has-mr-6">3.1</span>
         <span>範例</span>
-        </a></li><li>
+        </a></li></ul></li><li>
         <a class="is-flex" href="#結論">
-        <span class="has-mr-6">5</span>
+        <span class="has-mr-6">4</span>
         <span>結論</span>
         </a></li></ul>
             </div>
