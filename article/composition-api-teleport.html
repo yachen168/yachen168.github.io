@@ -31,7 +31,7 @@
 <meta property="og:description" content="Vue3 Composition API 新增了 Teleport 功能，讓我們可以輕鬆的將組件傳送到指定的地方，很酷的是，它還能夠保存狀態!">
 <meta property="og:image" content="https://yachen168.github.io/images/cover-vue.png">
 <meta property="article:published_time" content="2021-01-24T12:40:37.000Z">
-<meta property="article:modified_time" content="2021-01-24T16:11:12.784Z">
+<meta property="article:modified_time" content="2021-01-24T16:19:20.776Z">
 <meta property="article:author" content="yachen">
 <meta property="article:tag" content="Vue3">
 <meta property="article:tag" content="composition API">
@@ -129,6 +129,10 @@
                     </a>
                     
                 
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
                 
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
@@ -303,7 +307,7 @@
 
 <div class="card">
     <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">Commentaires</h3>
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
         
 <div id="comment-container"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
@@ -362,7 +366,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Articles
+                        Posts
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
@@ -374,7 +378,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Catégorie
+                        Categories
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
@@ -433,11 +437,55 @@
 </div>
     
         
+
+    <div class="card widget" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    Catalogue
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#為什麼需要-Teleport？">
+        <span class="has-mr-6">1</span>
+        <span>為什麼需要 Teleport？</span>
+        </a></li><li>
+        <a class="is-flex" href="#Teleport-語法">
+        <span class="has-mr-6">2</span>
+        <span>Teleport 語法</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#範例">
+        <span class="has-mr-6">2.1</span>
+        <span>範例</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#使用-Teleport-前">
+        <span class="has-mr-6">2.1.1</span>
+        <span>使用 Teleport 前</span>
+        </a></li><li>
+        <a class="is-flex" href="#使用-Teleport-後">
+        <span class="has-mr-6">2.1.2</span>
+        <span>使用 Teleport 後</span>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#Teleport-特性">
+        <span class="has-mr-6">3</span>
+        <span>Teleport 特性</span>
+        </a></li><li>
+        <a class="is-flex" href="#範例-v2">
+        <span class="has-mr-6">4</span>
+        <span>範例</span>
+        </a></li><li>
+        <a class="is-flex" href="#結論">
+        <span class="has-mr-6">5</span>
+        <span>結論</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
     
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Récents
+            Recent
         </h3>
         
         <article class="media">
@@ -686,9 +734,9 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Articles',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Catégories',
+                CATEGORIES: 'Categories',
                 TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
