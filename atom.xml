@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yachen168.github.io/"/>
-  <updated>2021-01-05T09:14:01.663Z</updated>
+  <updated>2021-01-24T16:11:12.784Z</updated>
   <id>https://yachen168.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue3 Composition API - Teleport 瞬移!</title>
+    <link href="https://yachen168.github.io/article/composition-api-teleport.html"/>
+    <id>https://yachen168.github.io/article/composition-api-teleport.html</id>
+    <published>2021-01-24T12:40:37.000Z</published>
+    <updated>2021-01-24T16:11:12.784Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Vue3 Composition API 新增了 Teleport 功能，讓我們可以輕鬆的將組件傳送到指定的地方，很酷的是，它還能夠保存狀態!&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
+    
+    
+      <category term="Vue3" scheme="https://yachen168.github.io/tags/Vue3/"/>
+    
+      <category term="composition API" scheme="https://yachen168.github.io/tags/composition-API/"/>
+    
+  </entry>
   
   <entry>
     <title>讓網頁平滑滾動!</title>
