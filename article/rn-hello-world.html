@@ -20,18 +20,18 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>React Native 開發環境建置 - Android 篇(上) - yachen</title>
+<title>React Native 開發環境建置 - Android 篇(下) - yachen</title>
 
 
-    <meta name="description" content="這系列文章將一步步介紹如何在 mac 上搭建 Android 和 ios 的開發環境(React Native ClI)、如何在模擬器和實體裝置中運行、如何打包 APK 和 IPA。因為筆者覺得 ios 比較複(機)雜(車)，所以會先從 Android 開始介紹。 會選擇 React Native ClI 而不是較友善的 Expo ClL 是因為筆者之後想要在 RN 上用 WebRTC，考慮到支援">
+    <meta name="description" content="這系列文章將一步步介紹如何在 mac 上搭建 Android 和 ios 的開發環境(React Native ClI)、如何在模擬器和實體裝置中運行、如何打包 APK 和 IPA。 會選擇 React Native ClI 而不是較友善的 Expo ClL 是因為筆者之後想要在 RN 上用 WebRTC，考慮到支援度的問題，所以選擇 React Native ClI。 而這篇將介紹如何在模擬器(">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React Native 開發環境建置 - Android 篇(上)">
-<meta property="og:url" content="https://yachen168.github.io/article/rn-environment-android.html">
+<meta property="og:title" content="React Native 開發環境建置 - Android 篇(下)">
+<meta property="og:url" content="https://yachen168.github.io/article/rn-hello-world.html">
 <meta property="og:site_name" content="yachen">
-<meta property="og:description" content="這系列文章將一步步介紹如何在 mac 上搭建 Android 和 ios 的開發環境(React Native ClI)、如何在模擬器和實體裝置中運行、如何打包 APK 和 IPA。因為筆者覺得 ios 比較複(機)雜(車)，所以會先從 Android 開始介紹。 會選擇 React Native ClI 而不是較友善的 Expo ClL 是因為筆者之後想要在 RN 上用 WebRTC，考慮到支援">
+<meta property="og:description" content="這系列文章將一步步介紹如何在 mac 上搭建 Android 和 ios 的開發環境(React Native ClI)、如何在模擬器和實體裝置中運行、如何打包 APK 和 IPA。 會選擇 React Native ClI 而不是較友善的 Expo ClL 是因為筆者之後想要在 RN 上用 WebRTC，考慮到支援度的問題，所以選擇 React Native ClI。 而這篇將介紹如何在模擬器(">
 <meta property="og:image" content="https://yachen168.github.io/images/cover-rn.png">
-<meta property="article:published_time" content="2021-07-24T08:48:48.000Z">
-<meta property="article:modified_time" content="2021-07-24T10:46:25.938Z">
+<meta property="article:published_time" content="2021-07-24T13:30:48.000Z">
+<meta property="article:modified_time" content="2021-07-24T13:37:42.203Z">
 <meta property="article:author" content="yachen">
 <meta property="article:tag" content="React Native">
 <meta property="article:tag" content="Android">
@@ -97,7 +97,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/avatar.png" alt="React Native 開發環境建置 - Android 篇(上)" height="28">
+                <img src="/images/avatar.png" alt="React Native 開發環境建置 - Android 篇(下)" height="28">
             
             </a>
         </div>
@@ -153,7 +153,7 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="/./images/cover-rn.png" alt="React Native 開發環境建置 - Android 篇(上)">
+            <img class="thumbnail" src="/./images/cover-rn.png" alt="React Native 開發環境建置 - Android 篇(下)">
         </span>
     </div>
     
@@ -161,7 +161,7 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2021-07-24T08:48:48.000Z">2021-07-24</time>
+                <time class="level-item has-text-grey" datetime="2021-07-24T13:30:48.000Z">2021-07-24</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/App/">App</a>
@@ -171,7 +171,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5 minutes read (About 819 words)
+                    7 minutes read (About 987 words)
                 </span>
                 
                 
@@ -180,79 +180,89 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                React Native 開發環境建置 - Android 篇(上)
+                React Native 開發環境建置 - Android 篇(下)
             
         </h1>
         <div class="content">
-            <p>這系列文章將一步步介紹如何在 mac 上搭建 Android 和 ios 的開發環境(React Native ClI)、如何在模擬器和實體裝置中運行、如何打包 APK 和 IPA。因為筆者覺得 ios 比較複(機)雜(車)，所以會先從 Android 開始介紹。</p>
+            <p>這系列文章將一步步介紹如何在 mac 上搭建 Android 和 ios 的開發環境(React Native ClI)、如何在模擬器和實體裝置中運行、如何打包 APK 和 IPA。</p>
 <p>會選擇 React Native ClI 而不是較友善的 Expo ClL 是因為筆者之後想要在 RN 上用 WebRTC，考慮到支援度的問題，所以選擇 React Native ClI。</p>
+<p>而這篇將介紹如何在<b>模擬器(Android Studio)和實體裝置中運行你的 RN 專案！</b>在閱讀這篇文章之前，請先確實按照上一篇 <a href="https://yachen168.github.io/article/rn-environment-android.html#more">React Native 開發環境建置 - Android 篇(上)</a> 的步驟進行相關的 Android 開發環境設定。</p>
 <a id="more"></a>
 <br/>
-<h1 id="安裝-dependencies"><a class="header-anchor" href="#安裝-dependencies"></a>安裝 dependencies</h1>
-<p>在建置 Android 開發環境之前，需要先安裝的 dependencies 有：</p>
-<ul>
-<li>Node</li>
-<li>Watchman</li>
-<li>JDK (Java Development Kit)</li>
-<li>Android Studio</li>
-</ul>
-<br/>
-<h2 id="Node-Watchman-JDK"><a class="header-anchor" href="#Node-Watchman-JDK"></a>Node &amp; Watchman &amp; JDK</h2>
-<p>使用 <code>Homebrew</code> 安裝 Node、Watchman、JDK：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew install node</span><br><span class="line">brew install watchman</span><br><span class="line">brew install --cask adoptopenjdk/openjdk/adoptopenjdk8</span><br></pre></td></tr></table></figure>
-<p>如果你以前就安裝過 Node，請確保 Node 版本為 12 以上。<br>
-如果你以前就安裝過 JDK，請確保 JDK 版本為 8 以上。</p>
-<br/>
-<h1 id="建置-Android-開發環境"><a class="header-anchor" href="#建置-Android-開發環境"></a>建置 Android 開發環境</h1>
-<h2 id="安裝-Android-Studio"><a class="header-anchor" href="#安裝-Android-Studio"></a>安裝 Android Studio</h2>
-<p>安裝完 Node、Watchman 和 JDK 後，就可以開始建置 Android 的開發環境了！<br>
-<a href="https://developer.android.com/studio">下載並安裝 Android Studio</a>，需注意的是，在安裝 Android Studio 時，記得要將以下三個勾選起來：</p>
-<ul>
-<li>Android SDK</li>
-<li>Android SDK Platform</li>
-<li>Android Virtual Device</li>
-</ul>
-<br/>
-<h2 id="安裝-Android-SDK"><a class="header-anchor" href="#安裝-Android-SDK"></a>安裝 Android SDK</h2>
-<p>Android Studio 預設會安裝最新版的 SDK，而 React Native 需要的是 <code>Android 10 (Q)</code> 版本的 SDK，可以在 Android Studio 中的 <code>SDK Manager</code> 選擇 SDK 版本。</p>
-<p>可以在 Android Studio menu 中的 <code>Preferences</code> → <code>Appearance &amp; Behavior</code> → <code>System Settings</code> → <code>Android SDK</code> 找到:</p>
-<p><img src="https://i.imgur.com/PTNFhCy.jpg" alt=""></p>
-<p>勾選 <code>Android 10 (Q)</code>:</p>
-<p><img src="./rn-environment-android/android-sdk-1.png" alt=""></p>
-<p>接著繼續在 <code>SDK Platform</code> 的 tab 下，勾選右下角的 <code>Show Package Details</code>，確認在 Android 10 (Q) 下有勾選：</p>
-<ul>
-<li>Android SDK Platform 29</li>
-<li>Intel x86 Atom_64 System Image 或 Google APIs Intel x86 Atom System Image</li>
-</ul>
-<p><img src="./rn-environment-android/android-sdk-2.png" alt=""></p>
-<p>在 <code>SDK Tools</code> 的 tab 中，勾選右下方的 <code>Show Package Details</code>，確認 <code>Android SDK Build-Tools</code> 下的 <code>29.0.2</code> 有被勾選起來:</p>
-<p><img src="./rn-environment-android/android-sdk-3.png" alt=""></p>
-<p>將 <code>Android SDK Command-line Tools (latest)</code> 勾選起來:</p>
-<p><img src="./rn-environment-android/android-sdk-4.png" alt=""></p>
-<p>最後按下 <code>Apply</code> 開始下載並安裝以上的設定!!!</p>
-<br/>
-<h2 id="配置-ANDROID-HOME-的環境變量"><a class="header-anchor" href="#配置-ANDROID-HOME-的環境變量"></a>配置 ANDROID_HOME 的環境變量</h2>
-<p>打開終端機，在 $HOME/.bash_profile 或 $HOME/.bashrc (如果你是使用 zsh 則為 ~/.zprofile 或 ~/.zshrc) 添加：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export ANDROID_HOME=$HOME/Library/Android/sdk</span><br><span class="line">export PATH=$PATH:$ANDROID_HOME/emulator</span><br><span class="line">export PATH=$PATH:$ANDROID_HOME/tools</span><br><span class="line">export PATH=$PATH:$ANDROID_HOME/tools/bin</span><br><span class="line">export PATH=$PATH:$ANDROID_HOME/platform-tools</span><br></pre></td></tr></table></figure>
-<p>之後執行 <code>source $HOME/.bash_profile</code> 或 <code>source $HOME/.zprofile</code> (zsh 則為 <code>source ~/.zprofile</code> 或 <code>source ~/.zshrc</code>) 來生效上方的環境變量設定</p>
-<p>在終端機執行 <code>echo $ANDROID_HOME</code>，檢查環境變量是否已經正確配置:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $ANDROID_HOME</span><br></pre></td></tr></table></figure>
-<p><img src="./rn-environment-android/android-env-variables.png" alt=""></p>
+<h1 id="Hello-World"><a class="header-anchor" href="#Hello-World"></a>Hello World!</h1>
+<p>現在可以開始建立 RN 專案了！</p>
 <blockquote>
-<p>再次確認在 Android Studio menu 中的 <code>Preferences</code> → <code>Appearance &amp; Behavior</code> → <code>System Settings</code> → <code>Android SDK</code> 的路徑:</p>
+<p>❗️❗️注意: 如果你之前有在全域安裝過 <code>react-native-cli</code>，記得要先 <code>npm uninstall -g react-native-cli</code>，否則可能會出現一些無法預期的問題。</p>
 </blockquote>
-<p><img src="./rn-environment-android/android-env-2.png" alt=""></p>
 <br/>
-<p>終於!!! 經過這些繁瑣的設定之後，就可以建立 RN 專案並在 Android Studio 上運行了!!!(下集待續) 🎉🎉🎉</p>
+<p>建立一個名叫 AwesomeProject 的 RN 專案:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx react-native init AwesomeProject</span><br></pre></td></tr></table></figure>
+<p>或是建立 Typescript 的 template:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx react-native init AwesomeTSProject --template react-native-template-typescript</span><br></pre></td></tr></table></figure>
+<p>建立 RN 專案後，可以透過兩種方式查看 android 的運行結果:</p>
+<ul>
+<li>模擬器 - Android Studio</li>
+<li>實體裝置 (需要 USB 連接電腦和手機)</li>
+</ul>
+<br/>
+<h1 id="在模擬器-Android-Studio-上運行"><a class="header-anchor" href="#在模擬器-Android-Studio-上運行"></a>在模擬器(Android Studio)上運行</h1>
+<p>使用 <code>Android Studio</code> 打開剛剛建立好的 AwesomeProject，然後打開 AVD Manager (AVD Manager 的 icon: <img src="./rn-hello-world/icon-avd.png" alt=""></p>
+<p>如果你是剛安裝好 Android Studio，你需要先<a href="https://developer.android.com/studio/run/managing-avds">建立 AVD (Android Virtual Device)</a>: 點擊 <code>Create Virtual Device</code></p>
+<p><img src="./rn-hello-world/create-avd.png" alt=""></p>
+<p>選擇你要的虛擬裝置，然後按 <code>Next</code>:</p>
+<p><img src="./rn-hello-world/virtual-device-1.png" alt=""></p>
+<p>選擇 <code>Q API Level 29 image</code>，然後按 <code>Next</code>:</p>
+<p><img src="./rn-hello-world/virtual-device-2.png" alt=""></p>
+<p>再按 <code>Finish</code>:</p>
+<p><img src="./rn-hello-world/virtual-device-3.png" alt=""></p>
+<p>新增完 AVD 後，就可以按<b>綠色三角形</b>的按鈕來啟動:</p>
+<p><img src="./rn-hello-world/virtual-device-4.png" alt=""></p>
+<p><img src="./rn-hello-world/virtual-device-5.png" alt=""></p>
+<p>在 VSCode 中打開 RN 專案，並在專案下執行 <code>yarn android</code>:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn android</span><br></pre></td></tr></table></figure>
+<p>就可以看到 RN 專案運行在 Android Studio 上了:</p>
+<p><img src="./rn-hello-world/virtual-device-6.png" alt=""></p>
+<p>可以在 <code>App.js</code> 修改幾行程式碼看效果(記得按 command + s 儲存變更):</p>
+<p><img src="./rn-hello-world/virtual-device-7.png" alt=""></p>
+<br/>
+<h1 id="USB-連接實體裝置"><a class="header-anchor" href="#USB-連接實體裝置"></a>USB 連接實體裝置</h1>
+<p>很多時候會需要連接實體裝置來運行，例如當你的專案需要使用到手機的 camera 時，就會需要使用真的實體機來看效果。</p>
+<p>要在實體手機上運行，需要以下步驟:</p>
+<ol>
+<li>
+<p>在實體手機上點選 <code>設定</code> → <code>關於手機</code> → <code>軟體資訊</code>，找到轉體資訊中的<code>版本號碼</code>，連續點擊<code>版本號碼</code> <code>7 下</code>，<b>手機就會啟動開發者模式</b>。</p>
+</li>
+<li>
+<p>回到手機上的 <code>設定</code> 畫面，會看到多出一個 <code>開發人員選項</code>，點擊進入開發人員選項。</p>
+</li>
+<li>
+<p>在開發人員選項中，找到 <code>USB 偵錯</code> 並<code>開啟</code>。</p>
+</li>
+<li>
+<p>用 <b>USB 連接電腦和手機裝置</b>，然後在 RN 專案下執行 <code>adb devices</code>，查看裝置有無連接成功:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> adb devices</span></span><br><span class="line"></span><br><span class="line"> List of devices attached</span><br><span class="line"> 14ed2fcc device         # 實體裝置</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>❗️❗️注意: 一次只能連接一個裝置(包含 Android Studio)，也就是需要確保 <code>adb devices</code> 回傳的 List of devices attached 中<code>只有 1 個</code>是連線狀態，否則後續操作可能會失敗。<b>如果你要使用實體裝置，就斷開 Android Studio; 要使用 Android Studio，就斷開實體裝置!</b></p>
+</blockquote>
+</li>
+<li>
+<p>執行 <code>yarn android</code>，就可以看到它在實體裝置上運行了:</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn android</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>結束後記得關閉實體手機的開發者模式: 設定 → 開發者模式 → 關閉</p>
 <br/>
 <h1 id="結語"><a class="header-anchor" href="#結語"></a>結語</h1>
-<p>雖然 RN 建置開發環境的過程很枯燥乏味，但每個步驟都不能少，否則之後很容易出現各種奇怪的問題 🐛。</p>
-<p>下一篇將繼續介紹如何在模擬器(Android Studio)和實體裝置中運行你的 RN 專案！</p>
+<p>…筆者身為一個 Web 開發者，覺得 App 的開發者也太有耐性了吧! 🤔</p>
 <br/>
 <br/>
-<p><b>參考資源</b><br>
-<a href="https://reactnative.dev/docs/environment-setup">RN Docs - Setting up the development environment<br>
-</a></p>
+<p><b>參考資源</b></p>
+<ol>
+<li><a href="https://reactnative.dev/docs/environment-setup">RN Docs - Setting up the development environment<br>
+</a></li>
+<li><a href="https://reactnative.dev/docs/running-on-device">RN Docs - Running On Device<br>
+</a></li>
+</ol>
 
         </div>
         
@@ -277,17 +287,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/article/rn-hello-world.html">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">React Native 開發環境建置 - Android 篇(下)</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/article/composition-api-teleport.html">
-                <span class="level-item">Vue3 Composition API - Teleport 瞬移!</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/article/rn-environment-android.html">
+                <span class="level-item">React Native 開發環境建置 - Android 篇(上)</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -308,7 +311,7 @@
     var gitalk = new Gitalk({
         clientID: '55257ba0d3e214c6eb38',
         clientSecret: '2655b53e34f22f8e80ba21478704ab5b7a908bfb',
-        id: 'f2de8a789bba9233d6de78a45db07144',
+        id: 'c0d67fba681f09951ce80036c51c151d',
         repo: 'yachen168.github.io',
         owner: 'yachen168',
         admin: "yachen168",
@@ -437,32 +440,20 @@
                     Catalogue
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#安裝-dependencies">
+        <a class="is-flex" href="#Hello-World">
         <span class="has-mr-6">1</span>
-        <span>安裝 dependencies</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#Node-Watchman-JDK">
-        <span class="has-mr-6">1.1</span>
-        <span>Node & Watchman & JDK</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#建置-Android-開發環境">
+        <span>Hello World!</span>
+        </a></li><li>
+        <a class="is-flex" href="#在模擬器-Android-Studio-上運行">
         <span class="has-mr-6">2</span>
-        <span>建置 Android 開發環境</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#安裝-Android-Studio">
-        <span class="has-mr-6">2.1</span>
-        <span>安裝 Android Studio</span>
+        <span>在模擬器(Android Studio)上運行</span>
         </a></li><li>
-        <a class="is-flex" href="#安裝-Android-SDK">
-        <span class="has-mr-6">2.2</span>
-        <span>安裝 Android SDK</span>
-        </a></li><li>
-        <a class="is-flex" href="#配置-ANDROID-HOME-的環境變量">
-        <span class="has-mr-6">2.3</span>
-        <span>配置 ANDROID_HOME 的環境變量</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#結語">
+        <a class="is-flex" href="#USB-連接實體裝置">
         <span class="has-mr-6">3</span>
+        <span>USB 連接實體裝置</span>
+        </a></li><li>
+        <a class="is-flex" href="#結語">
+        <span class="has-mr-6">4</span>
         <span>結語</span>
         </a></li></ul>
             </div>
@@ -591,7 +582,7 @@
             <div class="level-start has-text-centered-mobile">
                 <!-- <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/avatar.png" alt="React Native 開發環境建置 - Android 篇(上)" height="28">
+                    <img src="/images/avatar.png" alt="React Native 開發環境建置 - Android 篇(下)" height="28">
                 
                 </a> -->
                 <p class="is-size-7">
