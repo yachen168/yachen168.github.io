@@ -31,7 +31,7 @@
 <meta property="og:description" content="這系列文章將一步步介紹如何在 mac 上搭建 Android 和 ios 的開發環境(React Native ClI)、如何在模擬器和實體裝置中運行、如何打包 APK 和 IPA。因為筆者覺得 ios 比較複(機)雜(車)，所以會先從 Android 開始介紹。 會選擇 React Native ClI 而不是較友善的 Expo ClL 是因為筆者之後想要在 RN 上用 WebRTC，考慮到支援">
 <meta property="og:image" content="https://yachen168.github.io/images/cover-rn.png">
 <meta property="article:published_time" content="2021-07-24T08:48:48.000Z">
-<meta property="article:modified_time" content="2021-07-24T09:08:14.769Z">
+<meta property="article:modified_time" content="2021-07-24T09:22:13.145Z">
 <meta property="article:author" content="yachen">
 <meta property="article:tag" content="React Native">
 <meta property="article:tag" content="Android">
@@ -130,12 +130,12 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="catalogue" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="Suche" href="javascript:;">
+                <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -171,7 +171,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5 minutes read (Acerca de 765 words)
+                    5 minutes read (About 815 words)
                 </span>
                 
                 
@@ -244,7 +244,10 @@
 <p><img src="./rn-environment-android/android-env-2.png" alt=""></p>
 <br/>
 <p>終於!!! 經過這些繁瑣的設定之後，就可以建立 RN 專案並在 Android Studio 上運行了!!! 🎉🎉🎉</p>
-<p>下一篇將繼續介紹如何在模擬器(Android Studio)和實體裝置中運行你的 RN 專案</p>
+<br/>
+<h1 id="結語"><a class="header-anchor" href="#結語"></a>結語</h1>
+<p>雖然 RN 建置開發環境的過程很枯燥乏味，但每個步驟都不能少，否則之後很容易出現各種奇怪的問題 🐛。</p>
+<p>下一篇將繼續介紹如何在模擬器(Android Studio)和實體裝置中運行你的 RN 專案！</p>
 <br/>
 <br/>
 <p><b>參考資源</b><br>
@@ -289,7 +292,7 @@
 
 <div class="card">
     <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">comments</h3>
+        <h3 class="title is-5 has-text-weight-normal">Commentaires</h3>
         
 <div id="comment-container"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
@@ -348,7 +351,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Articles
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
@@ -360,7 +363,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categorien
+                        Catégories
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
@@ -417,7 +420,7 @@
         <div class="card-content">
             <div class="menu">
                 <h3 class="menu-label">
-                    catalogue
+                    Catalogue
                 </h3>
                 <ul class="menu-list"><li>
         <a class="is-flex" href="#安裝-dependencies">
@@ -443,7 +446,11 @@
         <a class="is-flex" href="#配置-ANDROID-HOME-的環境變量">
         <span class="has-mr-6">2.3</span>
         <span>配置 ANDROID_HOME 的環境變量</span>
-        </a></li></ul></li></ul>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#結語">
+        <span class="has-mr-6">3</span>
+        <span>結語</span>
+        </a></li></ul>
             </div>
         </div>
     </div>
@@ -452,7 +459,7 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent Posts
+            Récents
         </h3>
         
         <article class="media">
@@ -689,7 +696,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Tippen Sie etwas..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -701,11 +708,11 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Seiten',
-                CATEGORIES: 'categories',
+                POSTS: 'Articles',
+                PAGES: 'Pages',
+                CATEGORIES: 'Catégories',
                 TAGS: 'Tags',
-                UNTITLED: '(Unbenannt)',
+                UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',
         };
