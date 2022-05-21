@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yachen168.github.io/"/>
-  <updated>2022-05-21T20:34:19.432Z</updated>
+  <updated>2022-05-21T20:36:59.958Z</updated>
   <id>https://yachen168.github.io/</id>
   
   <author>
@@ -21,11 +21,11 @@
     <link href="https://yachen168.github.io/article/pr-mdn.html"/>
     <id>https://yachen168.github.io/article/pr-mdn.html</id>
     <published>2022-05-21T03:50:38.000Z</published>
-    <updated>2022-05-21T20:34:19.432Z</updated>
+    <updated>2022-05-21T20:36:59.958Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;某天在查找 MDN docs 時，突然注意到最底下這個區塊(以前都視而不見)…那天滑鼠不知為何就這樣點了進去，然後突然覺得發現新大陸🐒，加上原本正打算好好的看一下某個主題的 MDN API docs，於是就興起了一邊看 MDN docs 一邊幫忙翻譯的衝動。後來發 PR(Pull Request) 也意外的順利通過，決定來整理一下重點和注意事項，給想對 MDN 文件內容進行勘誤或是幫忙更新文件人做參考。&lt;/p&gt;
+      &lt;p&gt;某天在查找 MDN docs 時，突然注意到最底下這個區塊(以前都視而不見)…那天滑鼠不知為何就這樣點了進去，然後突然覺得發現新大陸🐒，加上原本正打算好好的看一下某個主題的 MDN API docs，於是就興起了一邊看 MDN docs 一邊幫忙翻譯的衝動。後來向 MDN 發 PR(Pull Request) 也意外的順利通過，決定來整理一下重點和注意事項，給想對 MDN 文件內容進行勘誤或是幫忙更新文件的人做參考。&lt;/p&gt;
     
     </summary>
     
@@ -183,9 +183,9 @@
       <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
     
     
-      <category term="JavaScript" scheme="https://yachen168.github.io/tags/JavaScript/"/>
-    
       <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
+    
+      <category term="JavaScript" scheme="https://yachen168.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -206,9 +206,9 @@
       <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
     
     
-      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
-    
       <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
+    
+      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
     
   </entry>
   
@@ -251,9 +251,9 @@
       <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
     
     
-      <category term="JavaScript" scheme="https://yachen168.github.io/tags/JavaScript/"/>
-    
       <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
+    
+      <category term="JavaScript" scheme="https://yachen168.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -358,9 +358,9 @@
       <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
     
     
-      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
-    
       <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
+    
+      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
     
   </entry>
   
@@ -381,9 +381,9 @@
       <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
     
     
-      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
-    
       <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
+    
+      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
     
   </entry>
   
@@ -404,9 +404,9 @@
       <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
     
     
-      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
-    
       <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
+    
+      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
     
   </entry>
   
@@ -427,9 +427,9 @@
       <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
     
     
-      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
-    
       <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
+    
+      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
     
   </entry>
   
@@ -475,9 +475,9 @@
       <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
     
     
-      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
-    
       <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
+    
+      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
     
   </entry>
   
