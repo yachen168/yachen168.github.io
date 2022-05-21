@@ -31,7 +31,7 @@
 <meta property="og:description" content="身為一個工程師，查找 MDN 應該是家常便飯，如果想對 MDN 文件內容進行勘誤或是幫忙更新文件，可以參考一下這篇文章XD 故事是這樣的…某天在查找 MDN docs 時，突然注意到最底下這個區塊(以前都視而不見)…那天滑鼠不知為何就這樣點了進去，然後突然覺得發現新大陸🐒，加上原本正打算好好的看一下某個主題的 MDN API docs，於是就興起了一邊看 MDN docs 一邊幫忙翻譯的衝動。後">
 <meta property="og:image" content="https://yachen168.github.io/images/cover-mdn.png">
 <meta property="article:published_time" content="2022-05-21T03:50:38.000Z">
-<meta property="article:modified_time" content="2022-05-21T04:19:18.759Z">
+<meta property="article:modified_time" content="2022-05-21T04:19:52.178Z">
 <meta property="article:author" content="yachen">
 <meta property="article:tag" content="MDN">
 <meta property="article:tag" content="Contributors">
@@ -132,12 +132,12 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="catalogue" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;">
+                <a class="navbar-item search" title="Suche" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -173,7 +173,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    15 minutes read (About 2306 words)
+                    15 minutes read (Acerca de 2307 words)
                 </span>
                 
                 
@@ -264,7 +264,7 @@
 <li>執行 <code>yarn start</code>，之後可以在 local 端(local:5042)預覽編輯頁面，稍後在步驟四會進一步說明</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn start</span><br></pre></td></tr></table></figure>
-<p>(如果只要編輯英文版文件，以下設定可省略)<br>
+<p>(如果只要編輯英文版文件，以下 7.8.9 的設定可省略)<br>
 7. 在編輯器打開 <mark>translated-content</mark>，讓 git 也連到 mdn/translated-content 的 repo，之後就可以在 local 端 pull mdn/translated-content 的最新內容，執行:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add mdn git@github.com:mdn/translated-content.git</span><br></pre></td></tr></table></figure>
 <ol start="8">
@@ -382,7 +382,7 @@
 
 <div class="card">
     <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        <h3 class="title is-5 has-text-weight-normal">comments</h3>
         
 <div id="comment-container"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
@@ -453,7 +453,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Categorien
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
@@ -510,7 +510,7 @@
         <div class="card-content">
             <div class="menu">
                 <h3 class="menu-label">
-                    Catalogue
+                    catalogue
                 </h3>
                 <ul class="menu-list"><li>
         <a class="is-flex" href="#一、Fork-Clone-repo">
@@ -541,7 +541,7 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recent Posts
         </h3>
         
         <article class="media">
@@ -754,7 +754,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="Zurück nach oben" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -778,7 +778,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Tippen Sie etwas..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -791,10 +791,10 @@ document.addEventListener('DOMContentLoaded', function () {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
                 POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
+                PAGES: 'Seiten',
+                CATEGORIES: 'categories',
                 TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+                UNTITLED: '(Unbenannt)',
             },
             CONTENT_URL: '/content.json',
         };
