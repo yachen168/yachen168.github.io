@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yachen168.github.io/"/>
-  <updated>2022-05-21T20:36:59.958Z</updated>
+  <updated>2023-10-15T16:22:08.741Z</updated>
   <id>https://yachen168.github.io/</id>
   
   <author>
@@ -17,15 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>泰國自由行十天九夜-1</title>
+    <link href="https://yachen168.github.io/article/travel-thailand.html"/>
+    <id>https://yachen168.github.io/article/travel-thailand.html</id>
+    <published>2023-10-14T12:25:00.000Z</published>
+    <updated>2023-10-15T16:22:08.741Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;COVID-19 疫情解封後終於出國啦，這次和老姐二人去泰國自由行十天九夜(2023/9/30~2023/10/9)，去了曼谷、曼谷近郊、北碧府和芭達雅。&lt;br&gt;
+實在覺得泰國有點太好玩了，只能說待十天根本不夠啊，下次想去數位遊牧久待一下，&lt;s&gt;甚至在查怎麼移民泰國、看台灣人在泰國置產的心得&lt;/s&gt;，趁現在還算記憶猶新的時後簡單來記錄一下這十天九夜的清單XD&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="travel" scheme="https://yachen168.github.io/categories/travel/"/>
+    
+    
+      <category term="Thailand" scheme="https://yachen168.github.io/tags/Thailand/"/>
+    
+  </entry>
+  
+  <entry>
     <title>一起成為 MDN 的貢獻者吧!</title>
     <link href="https://yachen168.github.io/article/pr-mdn.html"/>
     <id>https://yachen168.github.io/article/pr-mdn.html</id>
     <published>2022-05-21T03:50:38.000Z</published>
-    <updated>2022-05-21T20:36:59.958Z</updated>
+    <updated>2023-10-15T08:54:54.164Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;某天在查找 MDN docs 時，突然注意到最底下這個區塊(以前都視而不見)…那天滑鼠不知為何就這樣點了進去，然後突然覺得發現新大陸🐒，加上原本正打算好好的看一下某個主題的 MDN API docs，於是就興起了一邊看 MDN docs 一邊幫忙翻譯的衝動。後來向 MDN 發 PR(Pull Request) 也意外的順利通過，決定來整理一下重點和注意事項，給想對 MDN 文件內容進行勘誤或是幫忙更新文件的人做參考。&lt;/p&gt;
+      &lt;p&gt;身為一個工程師，查找 MDN 應該是家常便飯，如果想對 MDN 文件內容進行勘誤或是幫忙更新文件，可以參考一下這篇文章XD&lt;/p&gt;
+&lt;p&gt;故事是這樣的…某天在查找 MDN docs 時，突然注意到最底下這個區塊(以前都視而不見)…那天滑鼠不知為何就這樣點了進去，然後突然覺得發現新大陸🐒，加上原本正打算好好的看一下某個主題的 MDN API docs，於是就興起了一邊看 MDN docs 一邊幫忙翻譯的衝動。後來發 PR 也意外的順利通過，決定來整理一下重點和注意事項給有興趣跳坑的人做參考。&lt;/p&gt;
     
     </summary>
     
@@ -455,29 +478,6 @@
     
     
       <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS 原理 - Containing block</title>
-    <link href="https://yachen168.github.io/article/Containing-block.html"/>
-    <id>https://yachen168.github.io/article/Containing-block.html</id>
-    <published>2020-02-08T18:27:51.000Z</published>
-    <updated>2020-06-04T10:09:20.454Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Containing block，中文常被翻譯為包含塊，它其實代表的是一個「區域」，一個由 box model 的 content edge 或 padding edge (若有設定 padding)所圍繞的範圍，它攸關元素的定位、寬高、內距與外距的計算，所以必須清楚知道元素的 containing block 是誰，才不會使畫面失控。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
-    
-    
-      <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
-    
-      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
     
   </entry>
   

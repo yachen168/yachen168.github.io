@@ -23,15 +23,15 @@
 <title>一起成為 MDN 的貢獻者吧! - yachen</title>
 
 
-    <meta name="description" content="某天在查找 MDN docs 時，突然注意到最底下這個區塊(以前都視而不見)…那天滑鼠不知為何就這樣點了進去，然後突然覺得發現新大陸🐒，加上原本正打算好好的看一下某個主題的 MDN API docs，於是就興起了一邊看 MDN docs 一邊幫忙翻譯的衝動。後來向 MDN 發 PR(Pull Request) 也意外的順利通過，決定來整理一下重點和注意事項，給想對 MDN 文件內容進行勘誤或是幫">
+    <meta name="description" content="身為一個工程師，查找 MDN 應該是家常便飯，如果想對 MDN 文件內容進行勘誤或是幫忙更新文件，可以參考一下這篇文章XD 故事是這樣的…某天在查找 MDN docs 時，突然注意到最底下這個區塊(以前都視而不見)…那天滑鼠不知為何就這樣點了進去，然後突然覺得發現新大陸🐒，加上原本正打算好好的看一下某個主題的 MDN API docs，於是就興起了一邊看 MDN docs 一邊幫忙翻譯的衝動。後">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一起成為 MDN 的貢獻者吧!">
 <meta property="og:url" content="https://yachen168.github.io/article/pr-mdn.html">
 <meta property="og:site_name" content="yachen">
-<meta property="og:description" content="某天在查找 MDN docs 時，突然注意到最底下這個區塊(以前都視而不見)…那天滑鼠不知為何就這樣點了進去，然後突然覺得發現新大陸🐒，加上原本正打算好好的看一下某個主題的 MDN API docs，於是就興起了一邊看 MDN docs 一邊幫忙翻譯的衝動。後來向 MDN 發 PR(Pull Request) 也意外的順利通過，決定來整理一下重點和注意事項，給想對 MDN 文件內容進行勘誤或是幫">
+<meta property="og:description" content="身為一個工程師，查找 MDN 應該是家常便飯，如果想對 MDN 文件內容進行勘誤或是幫忙更新文件，可以參考一下這篇文章XD 故事是這樣的…某天在查找 MDN docs 時，突然注意到最底下這個區塊(以前都視而不見)…那天滑鼠不知為何就這樣點了進去，然後突然覺得發現新大陸🐒，加上原本正打算好好的看一下某個主題的 MDN API docs，於是就興起了一邊看 MDN docs 一邊幫忙翻譯的衝動。後">
 <meta property="og:image" content="https://yachen168.github.io/images/cover-mdn.png">
 <meta property="article:published_time" content="2022-05-21T03:50:38.000Z">
-<meta property="article:modified_time" content="2022-05-21T20:36:59.958Z">
+<meta property="article:modified_time" content="2023-10-15T08:54:54.164Z">
 <meta property="article:author" content="yachen">
 <meta property="article:tag" content="MDN">
 <meta property="article:tag" content="Contributors">
@@ -173,7 +173,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    15 minutes read (About 2268 words)
+                    15 minutes read (About 2206 words)
                 </span>
                 
                 
@@ -186,8 +186,10 @@
             
         </h1>
         <div class="content">
-            <p>某天在查找 MDN docs 時，突然注意到最底下這個區塊(以前都視而不見)…那天滑鼠不知為何就這樣點了進去，然後突然覺得發現新大陸🐒，加上原本正打算好好的看一下某個主題的 MDN API docs，於是就興起了一邊看 MDN docs 一邊幫忙翻譯的衝動。後來向 MDN 發 PR(Pull Request) 也意外的順利通過，決定來整理一下重點和注意事項，給想對 MDN 文件內容進行勘誤或是幫忙更新文件的人做參考。</p>
+            <p>身為一個工程師，查找 MDN 應該是家常便飯，如果想對 MDN 文件內容進行勘誤或是幫忙更新文件，可以參考一下這篇文章XD</p>
+<p>故事是這樣的…某天在查找 MDN docs 時，突然注意到最底下這個區塊(以前都視而不見)…那天滑鼠不知為何就這樣點了進去，然後突然覺得發現新大陸🐒，加上原本正打算好好的看一下某個主題的 MDN API docs，於是就興起了一邊看 MDN docs 一邊幫忙翻譯的衝動。後來發 PR 也意外的順利通過，決定來整理一下重點和注意事項給有興趣跳坑的人做參考。</p>
 <a id="more"></a>
+<br/>
 <p><img src="./pr-mdn/foreword.png" alt=""></p>
 <p>整個過程大致可分為四個步驟:<br>
 一、fork &amp; clone MDN 的 repo<br>
@@ -235,7 +237,7 @@
 <h2 id="三、設置-預覽編輯畫面"><a class="header-anchor" href="#三、設置-預覽編輯畫面"></a>三、設置 &amp; 預覽編輯畫面</h2>
 <p>📍 content 資料夾 👉 在 local 端跑起來可預覽編輯的 MDN 頁面(也可以預覽 translated-content 資料夾的東西，很酷!🧞‍♂️)<br>
 📍 translated-content 資料夾 👉 在這個資料夾可編輯「非」英文版本的 MDN 文件內容</p>
-<p><strong>clone 之後，先在編輯器打開 <mark>content</mark>，接著進行下設定:</strong></p>
+<p><strong>clone 之後，先打開 <mark>content</mark>，接著進行下設定:</strong></p>
 <ol>
 <li>讓 git 也連到 mdn/content 的 repo，之後就可以在 local 端 pull mdn/content 的最新內容，執行:</li>
 </ol>
@@ -262,17 +264,6 @@
 <li>執行 <code>yarn start</code>，之後可以在 local 端(local:5042)預覽編輯頁面，稍後在步驟四會進一步說明</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn start</span><br></pre></td></tr></table></figure>
-<p>(如果只要編輯英文版文件，以下 7.8.9 的設定可省略)<br>
-7. 在編輯器打開 <mark>translated-content</mark>，讓 git 也連到 mdn/translated-content 的 repo，之後就可以在 local 端 pull mdn/translated-content 的最新內容，執行:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add mdn git@github.com:mdn/translated-content.git</span><br></pre></td></tr></table></figure>
-<ol start="8">
-<li>建立自己的 branch:</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch your-branch-name</span><br></pre></td></tr></table></figure>
-<ol start="9">
-<li>切換到自己的 branch:</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout your-branch-name</span><br></pre></td></tr></table></figure>
 <br/>
 <h2 id="四、編輯-發送-PR"><a class="header-anchor" href="#四、編輯-發送-PR"></a>四、編輯 &amp; 發送 PR</h2>
 <p>首先在編輯器打開 content 和 translated-content ，並且完成步驟二的設定，確定 <code>yarn start</code> 已經成功執行。<br>
@@ -365,6 +356,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/article/travel-thailand.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">泰國自由行十天九夜-1</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
             <a class="level level-item has-link-grey  article-nav-next" href="/article/rn-apk.html">
@@ -380,7 +378,7 @@
 
 <div class="card">
     <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">Commentaires</h3>
+        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
         
 <div id="comment-container"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
@@ -439,11 +437,11 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Articles
+                        Posts
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            21
+                            22
                         </p>
                     </a>
                 </div>
@@ -451,11 +449,11 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Catégories
+                        Categories
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            3
+                            4
                         </p>
                     </a>
                 </div>
@@ -467,7 +465,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            12
+                            13
                         </p>
                     </a>
                 </div>
@@ -539,8 +537,27 @@
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Récents
+            Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/article/travel-thailand.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="泰國自由行十天九夜-1">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2023-10-14T12:25:00.000Z">2023-10-14</time></div>
+                    <a href="/article/travel-thailand.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">泰國自由行十天九夜-1</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/travel/">travel</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -618,25 +635,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/article/composition-api-teleport.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/./images/cover-vue.png" alt="Vue3 Composition API - Teleport 瞬移!">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2021-01-24T12:40:37.000Z">2021-01-24</time></div>
-                    <a href="/article/composition-api-teleport.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Vue3 Composition API - Teleport 瞬移!</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/web/">web</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -662,7 +660,7 @@
                 </a> -->
                 <p class="is-size-7">
                     &copy;
-                    2022
+                    2023
                         yachen&nbsp; <br>Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
                             
                 </p>
@@ -788,9 +786,9 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Articles',
+                POSTS: 'Posts',
                 PAGES: 'Pages',
-                CATEGORIES: 'Catégories',
+                CATEGORIES: 'Categories',
                 TAGS: 'Tags',
                 UNTITLED: '(Untitled)',
             },
