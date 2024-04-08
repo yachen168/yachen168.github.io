@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yachen168.github.io/"/>
-  <updated>2023-10-15T08:54:54.164Z</updated>
+  <updated>2024-04-08T21:10:07.025Z</updated>
   <id>https://yachen168.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2023 泰國自由行</title>
+    <link href="https://yachen168.github.io/article/2023-Thailand.html"/>
+    <id>https://yachen168.github.io/article/2023-Thailand.html</id>
+    <published>2023-04-02T12:25:00.000Z</published>
+    <updated>2024-04-08T21:10:07.025Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;記錄一下半年前和老姐的十天九夜(2023/9/30~2023/10/9)的泰國自由行，這一個多禮拜去了曼谷、北碧府和芭達雅。 真心覺得泰國太好玩了，待十天根本不夠啊，回來後甚至一度在研究可以長居泰國的簽證和看別人在泰國置產的心得XD，也燃起想去數位遊牧久待一下的念頭。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Travel" scheme="https://yachen168.github.io/categories/Travel/"/>
+    
+    
+      <category term="Thailand" scheme="https://yachen168.github.io/tags/Thailand/"/>
+    
+  </entry>
   
   <entry>
     <title>一起成為 MDN 的貢獻者吧!</title>
@@ -456,29 +477,6 @@
     
     
       <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS 原理 - Containing block</title>
-    <link href="https://yachen168.github.io/article/Containing-block.html"/>
-    <id>https://yachen168.github.io/article/Containing-block.html</id>
-    <published>2020-02-08T18:27:51.000Z</published>
-    <updated>2020-06-04T10:09:20.454Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Containing block，中文常被翻譯為包含塊，它其實代表的是一個「區域」，一個由 box model 的 content edge 或 padding edge (若有設定 padding)所圍繞的範圍，它攸關元素的定位、寬高、內距與外距的計算，所以必須清楚知道元素的 containing block 是誰，才不會使畫面失控。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="web" scheme="https://yachen168.github.io/categories/web/"/>
-    
-    
-      <category term="CSS" scheme="https://yachen168.github.io/tags/CSS/"/>
-    
-      <category term="w3HexSchool" scheme="https://yachen168.github.io/tags/w3HexSchool/"/>
     
   </entry>
   
