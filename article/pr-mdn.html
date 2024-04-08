@@ -29,6 +29,7 @@
 <meta property="og:url" content="https://yachen168.github.io/article/pr-mdn.html">
 <meta property="og:site_name" content="yachen">
 <meta property="og:description" content="身為一個工程師，查找 MDN 應該是家常便飯，如果想對 MDN 文件內容進行勘誤或是幫忙更新文件，可以參考一下這篇文章XD 故事是這樣的…某天在查找 MDN docs 時，突然注意到最底下這個區塊(以前都視而不見)…那天滑鼠不知為何就這樣點了進去，然後突然覺得發現新大陸🐒，加上原本正打算好好的看一下某個主題的 MDN API docs，於是就興起了一邊看 MDN docs 一邊幫忙翻譯的衝動。後">
+<meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://yachen168.github.io/images/cover-mdn.png">
 <meta property="article:published_time" content="2022-05-21T03:50:38.000Z">
 <meta property="article:modified_time" content="2023-10-15T08:54:54.164Z">
@@ -132,12 +133,12 @@
                     
                 
                 
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                <a class="navbar-item is-hidden-tablet catalogue" title="文章目錄" href="javascript:;">
                     <i class="fas fa-list-ul"></i>
                 </a>
                 
                 
-                <a class="navbar-item search" title="Search" href="javascript:;">
+                <a class="navbar-item search" title="搜尋" href="javascript:;">
                     <i class="fas fa-search"></i>
                 </a>
                 
@@ -173,7 +174,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    15 minutes read (About 2206 words)
+                    15 分鐘 閱讀文 (大約 2206 個字)
                 </span>
                 
                 
@@ -378,7 +379,7 @@
 
 <div class="card">
     <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">Comments</h3>
+        <h3 class="title is-5 has-text-weight-normal">評論</h3>
         
 <div id="comment-container"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
@@ -437,7 +438,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        文章
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
@@ -449,7 +450,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        分類
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
@@ -461,7 +462,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        標籤
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
@@ -474,7 +475,7 @@
         
         <div class="level">
             <a class="level-item button is-link is-rounded" href="https://github.com/yachen168" target="_blank" rel="noopener">
-                Follow</a>
+                追蹤</a>
         </div>
         
         
@@ -485,13 +486,6 @@
                 title="Github" href="https://github.com/yachen168">
                 
                 <i class="fab fa-github"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Facebook" href="https://www.facebook.com/profile.php?id=100001269953108">
-                
-                <i class="fab fa-facebook"></i>
                 
             </a>
             
@@ -506,7 +500,7 @@
         <div class="card-content">
             <div class="menu">
                 <h3 class="menu-label">
-                    Catalogue
+                    文章目錄
                 </h3>
                 <ul class="menu-list"><li>
         <a class="is-flex" href="#一、Fork-Clone-repo">
@@ -534,10 +528,56 @@
     </div>
 
     
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分類
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/App/">
+            <span class="level-start">
+                <span class="level-item">App</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/developer/">
+            <span class="level-start">
+                <span class="level-item">developer</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/web/">
+            <span class="level-start">
+                <span class="level-item">web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">17</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82/">
+            <span class="level-start">
+                <span class="level-item">吃喝玩樂</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
         <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            最新文章
         </h3>
         
         <article class="media">
@@ -553,7 +593,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2024-04-02T12:25:00.000Z">2024-04-02</time></div>
                     <a href="/article/2023-Thailand.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">2023 泰國自由行</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Travel/">Travel</a>
+                        <a class="has-link-grey -link" href="/categories/%E5%90%83%E5%96%9D%E7%8E%A9%E6%A8%82/">吃喝玩樂</a>
                     </p>
                 </div>
             </div>
@@ -673,7 +713,7 @@
 </footer>
                 <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
-<script>moment.locale("zh-Hant");</script>
+<script>moment.locale("zh-TW");</script>
 
 
 <script>
@@ -750,7 +790,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 
-<a id="back-to-top" title="Back to Top" href="javascript:;">
+<a id="back-to-top" title="回到頁首" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
 <script src="/js/back-to-top.js" defer></script>
@@ -774,7 +814,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="searchbox ins-search">
     <div class="searchbox-container ins-search-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <input type="text" class="searchbox-input ins-search-input" placeholder="請輸入關鍵字..." />
             <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="searchbox-result-wrapper ins-section-wrapper">
@@ -786,11 +826,11 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+                POSTS: '文章',
+                PAGES: '頁面',
+                CATEGORIES: '分類',
+                TAGS: '標籤',
+                UNTITLED: '(無標題)',
             },
             CONTENT_URL: '/content.json',
         };
